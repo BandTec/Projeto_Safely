@@ -376,7 +376,7 @@ right:0;
 top:0;
 bottom:0;
 content:"";
-background:rgba(29, 42, 55,0.8);
+background: rgba(240, 74, 56, 0.4); /*rgba(29, 42, 55,0.8);*/
 }
 a.video-btn {
 position:relative;
@@ -482,6 +482,7 @@ display: none;
 margin-bottom:3em;
 }
 .contact{
+
 background:#273848 url(../img/map.png);
 }
 .contact-form{
