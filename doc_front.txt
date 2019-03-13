@@ -9,3 +9,8 @@ Layouts (Site) – http://demo.themewagon.com/preview/free-bootstrap-html5-app-lan
 layout (page monitoramento)  -
 
 http://demo.themewagon.com/preview/free-bootstrap-4-html5-admin-dashboard-template-themekit
+
+
+- cor do cabeçalho - 
+
+background-image: radial-gradient(circle, #ff569c, #ff618f, #ff6d83, #ff7a7b, #fd8675);

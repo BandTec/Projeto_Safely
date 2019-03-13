@@ -63,7 +63,9 @@ opacity:0.8;
 Navigation Style Start
 ========================================================================== */
 nav.navbar.bootsnav {
-background-color:#ff569c;
+/*background-color:#ff569c;*/
+background-image: radial-gradient(circle, #ff569c, #ff618f, #ff6d83, #ff7a7b, #fd8675);
+
 border-bottom: 1px solid #ff569c;
 box-shadow:2px 2px 12px 0px rgba(0, 0, 0, 0.1);
 -webkit-box-shadow:2px 2px 12px 0px rgba(0, 0, 0, 0.1);
