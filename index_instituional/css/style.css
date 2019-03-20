@@ -164,7 +164,7 @@ color:#ffffff;
 color:#ffffff;
 }
 .banner-btn i{
-color:#ff569c;
+color:#f861a0dc;
 font-size:30px;
 margin-right:10px;
 float:left;
@@ -685,7 +685,7 @@ color: #ff569c;
 padding:7em 0 6em 0;
 }
 .img-responsive.imack{
-max-width:112%;
+max-width:100%;
 }
 h1{
 font-size:48px;
@@ -724,6 +724,7 @@ line-height:18px;
 @media (max-width: 992px) {
 nav.navbar .navbar-brand img.logo {
     width: 106px;
+    
 }
 nav.navbar.bootsnav .navbar-toggle {
 background: transparent !important;
