@@ -8,6 +8,7 @@ public class RAM {
     float tamanhoRAM;
     float usadoRAM;
     float restoRAM;
+    int porcentagemRAM;
 
     public void definirTamanhoRam() {
         this.tamanhoRAM = Float.parseFloat(JOptionPane.showInputDialog("pergunta ram1"));
@@ -29,8 +30,10 @@ public class RAM {
         if (usadoRAM <= metade) {
             System.out.println("Ainda está tudo bem com a sua RAM !");
         } else {
-            System.out.println("está utilizando d mais da sua RAM");
+            System.out.println("está utilizando d mais da sua RAM, talvez voce precise pensar em adiquirir outra");
         }
-
+        porcentagemRAM = (int) (tamanhoRAM - usadoRAM);
+        System.out.println("SOBROU...." + porcentagemRAM + " % DE MEMORIA RAM" );
     }
+    
 }

@@ -7,6 +7,7 @@ public class HD {
     float tamanhoHD;
     float usadoHD;
     float restoHD;
+    int porcentagemHD;
 
     public void definirTamanhoHD() {
         this.tamanhoHD = Float.parseFloat(JOptionPane.showInputDialog("pergunta hd1"));
@@ -28,7 +29,9 @@ public class HD {
         if (usadoHD <= metade) {
             System.out.println("Ainda está tudo bem com o seu HD!");
         } else {
-            System.out.println("está utilizando d mais do seu HD");
+            System.out.println("está utilizando d mais do seu HD, talvez voce precise pensar em adiquirir outra");
         }
+        porcentagemHD = (int) (tamanhoHD - usadoHD);
+        System.out.println("SOBROU...." + porcentagemHD + " % DE MEMORIA RAM");
     }
 }
