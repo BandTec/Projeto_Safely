@@ -22,13 +22,14 @@ public class AlertaJava {
         Componentes ram = new Componentes();
         Componentes disco = new Componentes();
        
-
+        /**valores pré definidos temporiariamente, os atributos total e ocupado
+        serão preenchidos atráves da leitura de dados**/
         cpu.total =  2000;
         cpu.ocupado = 1900;
 
         //Chamada dos métodos
         cpu.usoCPU();
-        ram.usoDisco();
+        ram.usoRAM();
         disco.usoDisco();
         
     }

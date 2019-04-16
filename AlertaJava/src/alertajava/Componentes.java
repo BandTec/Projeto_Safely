@@ -39,7 +39,7 @@ public class Componentes {
         double porcentDisponivel = (this.disponivel * 100) / this.total;
         
         if (this.ocupado >= maximo) {
-            System.out.println("Sua CPU atingiu " + porcentOcupado + "%/" + this.total);
+            System.out.println("Sua memória RAM atingiu " + porcentOcupado + "%/" + this.total);
             System.out.println("Disponível: " + porcentDisponivel + "%");
         } 
     } 
@@ -51,7 +51,7 @@ public class Componentes {
         double porcentDisponivel = (this.disponivel * 100) / this.total;
         
         if (this.ocupado >= maximo) {
-            System.out.println("Sua CPU atingiu " + porcentocupado + "%/" + this.total);
+            System.out.println("O seu HD atingiu " + porcentocupado + "%/" + this.total);
             System.out.println("Disponível: " + porcentDisponivel + "%");
         } 
     }  
