@@ -12,6 +12,8 @@ import oshi.hardware.CentralProcessor;
 import oshi.hardware.ComputerSystem;
 import oshi.hardware.Firmware;
 import oshi.hardware.GlobalMemory;
+import oshi.hardware.HWDiskStore;
+//import oshi.hardware.HWPartition;
 //import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.FileSystem;
@@ -26,15 +28,18 @@ import oshi.software.os.OperatingSystemVersion;
 public class Coletor {
     public static void main(String[] args)  {
         
+       //instanciando os objetos
        SystemInfo system = new SystemInfo();
-    
+       HWDiskStore disk = new HWDiskStore();
+       
+       
        HardwareAbstractionLayer hardware = system.getHardware();
        OperatingSystem so = system.getOperatingSystem();
-   
+       
+      
        ComputerSystem maquina = hardware.getComputerSystem();         
        CentralProcessor cpu = hardware.getProcessor();
        GlobalMemory memoria = hardware.getMemory();
-       // HWDiskStore[] disco = hardware.getDiskStores();
         
        // Informações do sistema operacional
        
@@ -48,6 +53,7 @@ public class Coletor {
        //int Thread = so.getThreadCount();
        
        System.out.println("");
+       System.out.println("Sistema operacional");
        
        System.out.println("Familia: " + SO_familia + "\n"
                           + "FileSystem:  " + fileSystem + "\n" //arrumar
@@ -59,6 +65,8 @@ public class Coletor {
         System.out.println("");
        
        //Informações da máquina
+        
+       System.out.println("Informações da máquina: ");
        
        String serialNumber = maquina.getSerialNumber();
        String modelo = maquina.getModel();
@@ -76,6 +84,8 @@ public class Coletor {
 
        
        //Informações da cpu 
+        
+       System.out.println("CPU: ");
        
        String CPU_nome = cpu.getName();
        String CPU_modelo = cpu.getModel();
@@ -99,6 +109,8 @@ public class Coletor {
        
        //Dados do uso da CPU
        
+       System.out.println("USO CPU: ");
+       
        long  interrupts = cpu.getInterrupts();
        double carga_CPU = cpu.getSystemCpuLoad();
        double processos_na_fila =  cpu.getSystemLoadAverage();  
@@ -116,20 +128,35 @@ public class Coletor {
                            + "Context Switches: " + context);
      
       // Uso da Memória
-        long swapTotal = memoria.getSwapTotal(); // swap == memoria virtual
-        long swapUsado = memoria.getSwapUsed();
-        long total = memoria.getTotal();
-        long disponivel = memoria.getAvailable();
+        
+        System.out.println("Memória RAM: ");
+        long SWAP_Total = memoria.getSwapTotal(); // swap == memoria virtual
+        long SWAP_Usado = memoria.getSwapUsed();
+        long RAM_total = memoria.getTotal();
+        long RAM_disponivel = memoria.getAvailable();
         //long pageSize = memoria.getPageSize();
         //long swapPagesIn = memoria.getSwapPagesIn();
         //long swapPagesOut = memoria.getSwapPagesOut();
                 
-        System.out.println("Total: " + total + "\n"
-                            + "Disponível: " + disponivel + "\n"
-                            + "Swap total: " + swapTotal + "\n"
-                            + "Swap usado: " + swapUsado + "\n"
-                            + "");
-      // Disco
-       
+        System.out.println("Total: " + RAM_total + "\n"
+                            + "Disponível: " + RAM_disponivel + "\n"
+                            + "Swap total: " + SWAP_Total + "\n"
+                            + "Swap usado: " + SWAP_Usado + "\n");
+      // Disco -- arruamar
+      System.out.println("Disco: ");
+      
+      String nome = disk.getModel();
+      String DISCO_modelo = disk.getModel();
+      //HWPartition[] particoes = disk.getPartitions(); // converter para string
+      long pedencias = disk.getCurrentQueueLength();
+      long readBytes = disk.getReadBytes();
+      long reads = disk.getReads();
+      long tamanho = disk.getSize();
+      String serial = disk.getSerial();
+      long timeStamp =  disk.getTimeStamp();
+      long transferTime = disk.getTransferTime();
+      long whiteBytes = disk.getWriteBytes();
+      long whites = disk.getWrites();
+      int hash = disk.hashCode();
     }
 }
