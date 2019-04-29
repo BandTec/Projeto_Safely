@@ -2798,7 +2798,7 @@ Created using IcoMoon - icomoon.io
       color: #18ce0f; }
   .sidebar[data-color="orange"]:after,
   .off-canvas-sidebar[data-color="orange"]:after {
-    background: #f96332; }
+    background: #212529; }
   .sidebar[data-color="orange"] .nav li.active > a:not([data-toggle="collapse"]),
   .off-canvas-sidebar[data-color="orange"] .nav li.active > a:not([data-toggle="collapse"]) {
     color: #f96332; }
