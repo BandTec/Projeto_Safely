@@ -37,17 +37,17 @@ import oshi.util.FormatUtil;
 public class Coletor {
     public static void main(String[] args)  {
                 
+       
        //instanciando os objetos
        SystemInfo system = new SystemInfo();
-       HWDiskStore disk = new HWDiskStore();
-   
+    
        OperatingSystem os = system.getOperatingSystem();
        HardwareAbstractionLayer hardware = system.getHardware();
        ComputerSystem maquina = hardware.getComputerSystem();         
        CentralProcessor cpu = hardware.getProcessor();
        GlobalMemory memoria = hardware.getMemory();
-       
-       
+   
+
         System.out.println("");
         
        //Informações do sistema operacional
@@ -121,17 +121,38 @@ public class Coletor {
        // nucleo_logico = cpu.getLogicalProcessorCount();
        // nucleo_fisico = cpu.getPhysicalProcessorCount();
        // pacote_fisico = cpu.getPhysicalPackageCount();
+       
+       
   
         System.out.println("Processes: " + os.getProcessCount() +  ", Threads: " + os.getThreadCount() +"\n" 
                            + "ContextSwitches/Interrupções: " + cpu.getContextSwitches() + "/" + cpu.getInterrupts());
+        cpu.getSystemCpuLoad();
+        
         System.out.println("");
-        // USDA CPU POR PROCESSOS
+        //CARGA DA CPU
+        
+        System.out.format("CPU load: %.1f%% (counting ticks)%n", cpu.getSystemCpuLoadBetweenTicks() * 100);
+        System.out.format("CPU load: %.1f%% (OS MXBean)%n", cpu.getSystemCpuLoad() * 100);
+        double[] loadAverage = cpu.getSystemLoadAverage(3);
+        System.out.println("CPU load averages:" + (loadAverage[0] < 0 ? " N/A" : String.format(" %.2f", loadAverage[0]))
+                + (loadAverage[1] < 0 ? " N/A" : String.format(" %.2f", loadAverage[1]))
+                + (loadAverage[2] < 0 ? " N/A" : String.format(" %.2f", loadAverage[2])));
+        // per core CPU
+        StringBuilder procCpu = new StringBuilder("CPU load per processor:");
+        double[] load = cpu.getProcessorCpuLoadBetweenTicks();
+        for (double avg : load) {
+            procCpu.append(String.format(" %.1f%%", avg * 100));
+        }
+        System.out.println(procCpu.toString());
+        
+        System.out.println("");
+        // USo DA CPU POR PROCESSOS
         printProcesses(os, hardware.getMemory());
         
         //Instanciando objetos para o alerta
         AlertaComponentes alertaCPU = new AlertaComponentes();
        
-        alertaCPU.usoCPU(os.getProcessCount());
+        alertaCPU.usoCPU(cpu.getSystemCpuLoadBetweenTicks(), cpu.getSystemCpuLoad());
         
         System.out.println("");
         
@@ -167,7 +188,7 @@ public class Coletor {
       
       
     }
-    // Interfaces virtuias
+    // Interfaces virtuais
     public static void printNetworkInterfaces(NetworkIF[] networkIFs) {
      System.out.println("Network interfaces:");
         for (NetworkIF net2 : networkIFs) {
@@ -226,3 +247,4 @@ public class Coletor {
         }
     }
 }
+

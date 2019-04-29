@@ -11,29 +11,34 @@ package com.mycompany.leituradedados;
  */
 public class AlertaComponentes {
  
-    public void usoCPU(double processos){
-        //Estabelendo o valor máximo de uso
-        double maximo = (80 * processos) / 100;
-        //processos = (100 * processos) / 100;
+    public void usoCPU(double cpuLoad1, double cpuLoad2){        
+        
         
         //Condição para o alerta
-        if (processos >= maximo) {
-            System.out.println("Sua CPU atingiu está com muitos processos em fila e pode passar por uma instabilidade ou lentidão");
-        } 
+        
+        double cpu1 = cpuLoad1 * 100;
+        double cpu2 = cpuLoad2 * 100;
+
+        if (cpu1 >= cpu1 * 0.8 ) {
+            System.out.println("Sua CPU atingiu o limite de 80%");
+        }
+        if(cpu2 >= cpu2 * 0.2) {
+            System.out.println("Sua CPU atingiu o limite de 80%");
+        }
     }  
     
     public void usoRAM(long total, long usado){
-        double maximo = (80 * total) / 100;     
+        double maximo = (8.0 * total);    
         //total = (100 * total) / 100;
         
         if (usado >= maximo) {
             System.out.println("Sua memória RAM atingiu " + usado + "GB/" + total + "GB");
         } 
-    } 
+    }
     
     public void usoSwap(long total, long usado){
         double maximo = (80 * total) / 100;   
-         //total = (100 * total) / 100;
+         //total = (100 * total) / 100
         
         if (usado >= maximo) {
             double PorcentUsado = (usado * 100) / total;
@@ -49,4 +54,5 @@ public class AlertaComponentes {
             System.out.println("O seu HD atingiu " + usado + "GB/" + total + "GB");
         } 
     }  
+   
 }
