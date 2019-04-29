@@ -24,8 +24,7 @@ public class AlertaJava {
        
         /**valores pré definidos temporiariamente, os atributos total e ocupado
         serão preenchidos atráves da leitura de dados**/
-        cpu.total =  2000;
-        cpu.ocupado = 1900;
+       cpu.processos = 100;
 
         //Chamada dos métodos
         cpu.usoCPU();

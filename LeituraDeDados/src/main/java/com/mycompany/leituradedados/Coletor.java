@@ -6,20 +6,29 @@
 package com.mycompany.leituradedados;
 
 //import java.util.Arrays;
+import java.util.Arrays;
+import java.util.List;
 import oshi.SystemInfo;
 import oshi.hardware.Baseboard;
+//import oshi.hardware.Baseboard;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.ComputerSystem;
 import oshi.hardware.Firmware;
+//import oshi.hardware.Firmware;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HWDiskStore;
+import oshi.hardware.HWPartition;
 //import oshi.hardware.HWPartition;
 //import oshi.hardware.HWDiskStore;
 import oshi.hardware.HardwareAbstractionLayer;
-import oshi.software.os.FileSystem;
+import oshi.hardware.NetworkIF;
+import oshi.software.os.NetworkParams;
+import oshi.software.os.OSProcess;
+//import oshi.software.os.FileSystem;
 //import oshi.software.os.NetworkParams;
 import oshi.software.os.OperatingSystem;
-import oshi.software.os.OperatingSystemVersion;
+//import oshi.software.os.OperatingSystemVersion;
+import oshi.util.FormatUtil;
 
 /**
  *
@@ -27,136 +36,193 @@ import oshi.software.os.OperatingSystemVersion;
  */
 public class Coletor {
     public static void main(String[] args)  {
-        
+                
        //instanciando os objetos
        SystemInfo system = new SystemInfo();
        HWDiskStore disk = new HWDiskStore();
-       
-       
+   
+       OperatingSystem os = system.getOperatingSystem();
        HardwareAbstractionLayer hardware = system.getHardware();
-       OperatingSystem so = system.getOperatingSystem();
-       
-      
        ComputerSystem maquina = hardware.getComputerSystem();         
        CentralProcessor cpu = hardware.getProcessor();
        GlobalMemory memoria = hardware.getMemory();
-        
-       // Informações do sistema operacional
        
-       String SO_familia = so.getFamily();
-       FileSystem fileSystem = so.getFileSystem();
-       OperatingSystemVersion versao = so.getVersion();
-       String SO_manufacturer = so.getManufacturer();
-       int bitness =  so.getBitness();
+       
+        System.out.println("");
+        
+       //Informações do sistema operacional
+       System.out.println("Sistema operacional: ");
+       System.out.println(os);
+       
+       // Informações da maquina
+   
        //so.getProcessCount();
-       int PIB = so.getProcessId();
-       //int Thread = so.getThreadCount();
-       
-       System.out.println("");
-       System.out.println("Sistema operacional");
-       
-       System.out.println("Familia: " + SO_familia + "\n"
-                          + "FileSystem:  " + fileSystem + "\n" //arrumar
-                          + "Versão: " + versao + "\n"
-                          + "ManuFacturer: " + SO_manufacturer + "\n"
-                          + "Bitness: " + bitness + "\n"
-                          + "PIB: " + PIB); 
+       // Thread = so.getThreadCount();
+       NetworkParams net = os.getNetworkParams();
        
         System.out.println("");
-       
-       //Informações da máquina
-        
-       System.out.println("Informações da máquina: ");
-       
-       String serialNumber = maquina.getSerialNumber();
-       String modelo = maquina.getModel();
-       Firmware firmware = maquina.getFirmware();
-       String manufacturer = maquina.getManufacturer();
-       Baseboard baseboard = maquina.getBaseboard();
-       
-        System.out.println("Serial Number: " + serialNumber  + "\n"
-                            + "Modelo:" + modelo + "\n"
-                            + "Firmware: " + firmware + "\n"  
-                            + "ManuFacturer: " + manufacturer + "\n"
-                            + "Baseboard: " + baseboard);
-        
-        System.out.println("");
+        System.out.println("Informações da máquina " + "\n");
 
+        System.out.println("Network parameters:");
+        System.out.format(" Host name: %s%n", net.getHostName());
+        System.out.format(" Domain name: %s%n", net.getDomainName());
+        System.out.format(" DNS servers: %s%n", Arrays.toString(net.getDnsServers()));
+        System.out.format(" IPv4 Gateway: %s%n", net.getIpv4DefaultGateway());
+        System.out.format(" IPv6 Gateway: %s%n", net.getIpv6DefaultGateway());
+    
+        System.out.println("");
+        
+        System.out.println("manufacturer: " + maquina.getManufacturer());
+        System.out.println("model: " + maquina.getModel());
+        System.out.println("serialnumber: " + maquina.getSerialNumber());
        
+        System.out.println("");
+        
+        final Firmware firmware = maquina.getFirmware();
+        System.out.println("firmware:");
+        System.out.println("  manufacturer: " + firmware.getManufacturer());
+        System.out.println("  name: " + firmware.getName());
+        System.out.println("  description: " + firmware.getDescription());
+        System.out.println("  version: " + firmware.getVersion());
+        System.out.println("");
+        final Baseboard baseboard = maquina.getBaseboard();
+        System.out.println("baseboard:");
+        System.out.println("  manufacturer: " + baseboard.getManufacturer());
+        System.out.println("  model: " + baseboard.getModel());
+        System.out.println("  version: " + baseboard.getVersion());
+        System.out.println("  serialnumber: " + baseboard.getSerialNumber());
+       
+        //Informações da máquinas virtuais na rede
+        
+        System.out.println("");
+        
+        NetworkIF[] net2 = hardware.getNetworkIFs();
+        printNetworkInterfaces(hardware.getNetworkIFs());
+          
+        
        //Informações da cpu 
         
-       System.out.println("CPU: ");
-       
-       String CPU_nome = cpu.getName();
-       String CPU_modelo = cpu.getModel();
-       String CPU_familia =  cpu.getFamily();
-       String id = cpu.getProcessorID();
-       String identificador = cpu.getIdentifier();
-       String stepping = cpu.getStepping();
-       String vendor = cpu.getVendor();
-       double uptime = cpu.getSystemUptime();
-        
-       
-       System.out.println("ID: " + id +"\n"
-                          + "Nome da CPU: " + CPU_nome + "\n"
-                          + "Modelo: " + CPU_modelo + "\n"
-                          +"Familia: " + CPU_familia +"\n"
-                          + "Identificador: " + identificador +"\n"
-                          + "Fornecedor: " + vendor  +"\n"
-                          +"Stepping: " + stepping + "\n"
-                          +"Uptime: " + uptime +"\n"
+       System.out.println(""); 
+       System.out.println("CPU: " + "\n");
+       System.out.println("ID: " + cpu.getProcessorID() +"\n"
+                          +"Identificador: " + cpu.getIdentifier() +"\n"
+                          + "Nome da CPU: " + cpu.getName() + "\n"
+                          + "Modelo: " + cpu.getModel() + "\n"
+                          +"Familia: " + cpu.getFamily() +"\n"
+                          +"Fornecedor: " + cpu.getVendor()  +"\n"
+                          +"Stepping: " + cpu.getStepping() + "\n"
+                          +"Uptime: " + FormatUtil.formatElapsedSecs(cpu.getSystemUptime()) +"\n"
        );    
        
        //Dados do uso da CPU
        
-       System.out.println("USO CPU: ");
-       
-       long  interrupts = cpu.getInterrupts();
-       double carga_CPU = cpu.getSystemCpuLoad();
-       double processos_na_fila =  cpu.getSystemLoadAverage();  
-       double velocidade_exe = cpu.getSystemCpuLoadBetweenTicks();
-       double context = cpu.getContextSwitches();
+       System.out.println("USO CPU ");
 
-       //int nucleo_logico = cpu.getLogicalProcessorCount();
-       //int nucleo_fisico = cpu.getPhysicalProcessorCount();
-       //int pacote_fisico = cpu.getPhysicalPackageCount();
+       // nucleo_logico = cpu.getLogicalProcessorCount();
+       // nucleo_fisico = cpu.getPhysicalProcessorCount();
+       // pacote_fisico = cpu.getPhysicalPackageCount();
   
-        System.out.println("Interrupções: " + interrupts + "\n"
-                           + "Carga da CPU: " + carga_CPU + "\n"
-                           + "Processos na fila: " + processos_na_fila + "\n"
-                           + "Velocidade de execução: " + velocidade_exe + "\n"
-                           + "Context Switches: " + context);
-     
-      // Uso da Memória
+        System.out.println("Processes: " + os.getProcessCount() +  ", Threads: " + os.getThreadCount() +"\n" 
+                           + "ContextSwitches/Interrupções: " + cpu.getContextSwitches() + "/" + cpu.getInterrupts());
+        System.out.println("");
+        // USDA CPU POR PROCESSOS
+        printProcesses(os, hardware.getMemory());
         
-        System.out.println("Memória RAM: ");
-        long SWAP_Total = memoria.getSwapTotal(); // swap == memoria virtual
-        long SWAP_Usado = memoria.getSwapUsed();
-        long RAM_total = memoria.getTotal();
-        long RAM_disponivel = memoria.getAvailable();
+        //Instanciando objetos para o alerta
+        AlertaComponentes alertaCPU = new AlertaComponentes();
+       
+        alertaCPU.usoCPU(os.getProcessCount());
+        
+        System.out.println("");
+        
+        // Uso da Memória
+        
+        System.out.println("Memória RAM e SWAP: ");
+
+        long usoRAM = memoria.getTotal() - memoria.getAvailable(); // para usar no alerta, mesmo valor do RAM_usado
         //long pageSize = memoria.getPageSize();
         //long swapPagesIn = memoria.getSwapPagesIn();
         //long swapPagesOut = memoria.getSwapPagesOut();
-                
-        System.out.println("Total: " + RAM_total + "\n"
-                            + "Disponível: " + RAM_disponivel + "\n"
-                            + "Swap total: " + SWAP_Total + "\n"
-                            + "Swap usado: " + SWAP_Usado + "\n");
-      // Disco -- arruamar
-      System.out.println("Disco: ");
+        
+        System.out.println("");
+        System.out.println("RAM: " + FormatUtil.formatBytes(memoria.getTotal() - memoria.getAvailable()) + "/" + FormatUtil.formatBytes(memoria.getTotal()) + "\n"
+                           +"Disponível: " + FormatUtil.formatBytes(memoria.getAvailable())
+                           +"\n" + "\n"
+                           +"SWAP: " + FormatUtil.formatBytes(memoria.getTotal()) + "/" + FormatUtil.formatBytes(memoria.getTotal()) + "\n"
+                           +"Disponível: " + FormatUtil.formatBytes(memoria.getSwapTotal() - memoria.getSwapUsed()));
+
+        //Instanciando objetos para alerta memoria RAM
+        AlertaComponentes alertaRAM = new AlertaComponentes();
+        alertaRAM.usoRAM(memoria.getTotal(),usoRAM);
+        
+        //Instanciando objetos para alerta memoria SWAP
+        AlertaComponentes alertaSwap = new AlertaComponentes();
+        alertaSwap.usoSwap(memoria.getSwapTotal(),memoria.getSwapUsed());
+       
+        System.out.println("");
+        // Disco -- arrumar
+        System.out.println("Disco: ");
+        
+        printDisks(hardware.getDiskStores());
       
-      String nome = disk.getModel();
-      String DISCO_modelo = disk.getModel();
-      //HWPartition[] particoes = disk.getPartitions(); // converter para string
-      long pedencias = disk.getCurrentQueueLength();
-      long readBytes = disk.getReadBytes();
-      long reads = disk.getReads();
-      long tamanho = disk.getSize();
-      String serial = disk.getSerial();
-      long timeStamp =  disk.getTimeStamp();
-      long transferTime = disk.getTransferTime();
-      long whiteBytes = disk.getWriteBytes();
-      long whites = disk.getWrites();
-      int hash = disk.hashCode();
+      
+    }
+    // Interfaces virtuias
+    public static void printNetworkInterfaces(NetworkIF[] networkIFs) {
+     System.out.println("Network interfaces:");
+        for (NetworkIF net2 : networkIFs) {
+            System.out.format(" Name: %s (%s)%n", net2.getName(), net2.getDisplayName());
+            System.out.format("   MAC Address: %s %n", net2.getMacaddr());
+            System.out.format("   MTU: %s, Speed: %s %n", net2.getMTU(), FormatUtil.formatValue(net2.getSpeed(), "bps"));
+            System.out.format("   IPv4: %s %n", Arrays.toString(net2.getIPv4addr()));
+            System.out.format("   IPv6: %s %n", Arrays.toString(net2.getIPv6addr()));
+            boolean hasData = net2.getBytesRecv() > 0 || net2.getBytesSent() > 0 || net2.getPacketsRecv() > 0
+                    || net2.getPacketsSent() > 0;
+        }
+    }
+    
+    // Disco
+    private static void printDisks(HWDiskStore[] diskStores) {
+        System.out.println("Disks:");
+        for (HWDiskStore disk : diskStores) {
+            boolean readwrite = disk.getReads() > 0 || disk.getWrites() > 0;
+            System.out.format(" %s: (model: %s - S/N: %s) size: %s, reads: %s (%s), writes: %s (%s), xfer: %s ms%n",
+                    disk.getName(), disk.getModel(), disk.getSerial(),
+                    disk.getSize() > 0 ? FormatUtil.formatBytesDecimal(disk.getSize()) : "?",
+                    readwrite ? disk.getReads() : "?", readwrite ? FormatUtil.formatBytes(disk.getReadBytes()) : "?",
+                    readwrite ? disk.getWrites() : "?", readwrite ? FormatUtil.formatBytes(disk.getWriteBytes()) : "?",
+                    readwrite ? disk.getTransferTime() : "?");
+            HWPartition[] partitions = disk.getPartitions();
+            if (partitions == null) {
+                // TODO Remove when all OS's implemented
+                continue;
+            }
+            for (HWPartition part : partitions) {
+                System.out.format(" |-- %s: %s (%s) Maj:Min=%d:%d, size: %s%s%n", part.getIdentification(),
+                        part.getName(), part.getType(), part.getMajor(), part.getMinor(),
+                        FormatUtil.formatBytesDecimal(part.getSize()),
+                        part.getMountPoint().isEmpty() ? "" : " @ " + part.getMountPoint());
+            }
+            
+        //Instanciando objeto para alerta DISCO
+        System.out.println("");
+        AlertaComponentes alertaDisco = new AlertaComponentes();
+        alertaDisco.usoDisco(disk.getSize(), disk.getReads());
+        }
+    }
+    
+    //Não é necessário gravar no banco, é apenas para repesentar na página web 
+    private static void printProcesses(OperatingSystem os, GlobalMemory memory) {
+        // Ordenado pela CPU mais alta
+        List<OSProcess> procs = Arrays.asList(os.getProcesses(5, OperatingSystem.ProcessSort.CPU));
+
+        System.out.println("   PID  %CPU %MEM       VSZ       RSS Name");
+        for (int i = 0; i < procs.size() && i < 5; i++) {
+            OSProcess p = procs.get(i);
+            System.out.format(" %5d %5.1f %4.1f %9s %9s %s%n", p.getProcessID(),
+                    100d * (p.getKernelTime() + p.getUserTime()) / p.getUpTime(),
+                    100d * p.getResidentSetSize() / memory.getTotal(), FormatUtil.formatBytes(p.getVirtualSize()),
+                    FormatUtil.formatBytes(p.getResidentSetSize()), p.getName());
+        }
     }
 }

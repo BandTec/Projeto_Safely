@@ -7,52 +7,48 @@ package alertajava;
 
 /**
  *
- * @author jogos
+ * @author Natalia Tayoane
  */
 public class Componentes {
     
-    public double total, ocupado;
-    public double disponivel;
+    //Atributos para memória e disco
+    public double total, ocupado, disponivel;
+
+    //atributo para cpu
+    public int processos; 
 
 
     public void usoCPU(){
         //Estabelendo o valor máximo de uso
-        double maximo = (80 * this.total) / 100;
-        //convertendo o valor ocupado para porcetagem
-        double porcentOcupado = (this.ocupado * 100) / total;
-        //calculando o valor disponivel
-        this.disponivel = this.total - this.ocupado;
-        //convertendo o valor disponível para porcentagem
-        double porcentDisponivel = (this.disponivel * 100) / this.total;
+        double maximo = (80 * this.processos) / 100;
         
         //Condição para o alerta
-        if (this.ocupado >= maximo) {
-            System.out.println("Sua CPU atingiu " + porcentOcupado + "%/" + this.total);
-            System.out.println("Disponível: " + porcentDisponivel + "%");
+        if (this.processos >= maximo) {
+            System.out.println("Sua CPU atingiu está com muitos processos em fila e pode passar por uma instabilidade ou lentidão");
         } 
     }  
     
     public void usoRAM(){
-        double maximo = (80 * this.total) / 100;
-        double porcentOcupado = (this.ocupado * 100) / total;
-        this.disponivel = this.total - this.ocupado;
-        double porcentDisponivel = (this.disponivel * 100) / this.total;
+        double maximo = (80 * this.total) / 100;       
         
         if (this.ocupado >= maximo) {
-            System.out.println("Sua memória RAM atingiu " + porcentOcupado + "%/" + this.total);
-            System.out.println("Disponível: " + porcentDisponivel + "%");
+            System.out.println("Sua memória RAM atingiu " + ocupado + "GB/" + this.total + "GB");
         } 
     } 
     
-    public void usoDisco(){
-        double maximo = (80 * this.total) / 100;
-        double porcentocupado = (this.ocupado * 100) / total;
-        this.disponivel = this.total - this.ocupado;
-        double porcentDisponivel = (this.disponivel * 100) / this.total;
+    public void usoSwap(){
+        double maximo = (80 * this.total) / 100;       
         
         if (this.ocupado >= maximo) {
-            System.out.println("O seu HD atingiu " + porcentocupado + "%/" + this.total);
-            System.out.println("Disponível: " + porcentDisponivel + "%");
+            System.out.println("Sua memória Swap atingiu " + ocupado + "GB/" + this.total + "GB");
+        } 
+    }
+    
+    public void usoDisco(){        
+        double maximo = (80 * this.total) / 100;
+       
+        if (this.ocupado >= maximo) {
+            System.out.println("O seu HD atingiu " + ocupado + "GB/" + this.total + "GB");
         } 
     }  
 }
