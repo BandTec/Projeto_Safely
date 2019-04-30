@@ -48,7 +48,7 @@ public class Coletor {
        GlobalMemory memoria = hardware.getMemory();
    
 
-        System.out.println("");
+       System.out.println("");
         
        //Informações do sistema operacional
        System.out.println("Sistema operacional: ");
@@ -146,15 +146,19 @@ public class Coletor {
         System.out.println(procCpu.toString());
         
         System.out.println("");
-        // USo DA CPU POR PROCESSOS
+        // Uso DA CPU POR PROCESSOS
         printProcesses(os, hardware.getMemory());
+        
+        System.out.println("");
         
         //Instanciando objetos para o alerta
         AlertaComponentes alertaCPU = new AlertaComponentes();
-       
-        alertaCPU.usoCPU(cpu.getSystemCpuLoadBetweenTicks(), cpu.getSystemCpuLoad());
+        alertaCPU.usado = (long) (cpu.getSystemCpuLoad() * 100);
+        
+        alertaCPU.usoCPU();
         
         System.out.println("");
+
         
         // Uso da Memória
         
@@ -169,25 +173,29 @@ public class Coletor {
         System.out.println("RAM: " + FormatUtil.formatBytes(memoria.getTotal() - memoria.getAvailable()) + "/" + FormatUtil.formatBytes(memoria.getTotal()) + "\n"
                            +"Disponível: " + FormatUtil.formatBytes(memoria.getAvailable())
                            +"\n" + "\n"
-                           +"SWAP: " + FormatUtil.formatBytes(memoria.getTotal()) + "/" + FormatUtil.formatBytes(memoria.getTotal()) + "\n"
+                           +"SWAP: " + FormatUtil.formatBytes(memoria.getSwapUsed()) + "/" + FormatUtil.formatBytes(memoria.getSwapTotal()) + "\n"
                            +"Disponível: " + FormatUtil.formatBytes(memoria.getSwapTotal() - memoria.getSwapUsed()));
 
         //Instanciando objetos para alerta memoria RAM
         AlertaComponentes alertaRAM = new AlertaComponentes();
-        alertaRAM.usoRAM(memoria.getTotal(),usoRAM);
+     
+        alertaRAM.total = memoria.getTotal() * 100;
+        alertaRAM.usado = usoRAM * 100;
+        alertaRAM.usoRAM();
         
         //Instanciando objetos para alerta memoria SWAP
         AlertaComponentes alertaSwap = new AlertaComponentes();
-        alertaSwap.usoSwap(memoria.getSwapTotal(),memoria.getSwapUsed());
+        
+        alertaSwap.total = memoria.getSwapTotal() * 100;
+        alertaSwap.usado = memoria.getSwapUsed() * 100;
+        alertaSwap.usoSwap();
        
         System.out.println("");
-        // Disco -- arrumar
-        System.out.println("Disco: ");
         
+        // Disco -- arrumar
         printDisks(hardware.getDiskStores());
-      
-      
     }
+    
     // Interfaces virtuais
     public static void printNetworkInterfaces(NetworkIF[] networkIFs) {
      System.out.println("Network interfaces:");
@@ -207,7 +215,7 @@ public class Coletor {
         System.out.println("Disks:");
         for (HWDiskStore disk : diskStores) {
             boolean readwrite = disk.getReads() > 0 || disk.getWrites() > 0;
-            System.out.format(" %s: (model: %s - S/N: %s) size: %s, reads: %s (%s), writes: %s (%s), xfer: %s ms%n",
+            System.out.format(" %s: (model: %s - S/N: %s)" + "\n" + "size: %s, reads: %s (%s), writes: %s (%s), xfer: %s ms%n",
                     disk.getName(), disk.getModel(), disk.getSerial(),
                     disk.getSize() > 0 ? FormatUtil.formatBytesDecimal(disk.getSize()) : "?",
                     readwrite ? disk.getReads() : "?", readwrite ? FormatUtil.formatBytes(disk.getReadBytes()) : "?",
@@ -225,10 +233,16 @@ public class Coletor {
                         part.getMountPoint().isEmpty() ? "" : " @ " + part.getMountPoint());
             }
             
-        //Instanciando objeto para alerta DISCO
+      
         System.out.println("");
+        
+       //Instanciando objeto para alerta DISCO
         AlertaComponentes alertaDisco = new AlertaComponentes();
-        alertaDisco.usoDisco(disk.getSize(), disk.getReads());
+        
+        alertaDisco.total = disk.getSize() * 100;
+        alertaDisco.usado = disk.getReads() * 100;
+        alertaDisco.usoDisco();
+       
         }
     }
     
