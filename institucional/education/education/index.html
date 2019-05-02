@@ -30,11 +30,30 @@
 	<link rel="stylesheet" href="css/owl.carousel.css">
 	<link rel="stylesheet" href="css/jquery-ui.css">
 	<link rel="stylesheet" href="css/main.css">
+	<link rel="stylesheet" href="login.css">
+
 </head>
 
 <!--Login-->
 
 <body>
+
+	<div class="form-popup" id="myForm">
+		<form action="/action_page.php" class="form-container">
+			&nbsp; 	&nbsp; 	&nbsp; 	&nbsp; 	&nbsp; 	&nbsp; 	&nbsp;
+			&nbsp;	&nbsp; 	&nbsp; 	&nbsp; 	&nbsp; 	&nbsp; 	&nbsp; 
+			&nbsp;	&nbsp;  &nbsp;
+			 <span><b style="color:#343a40"> Login</b></span><br>
+			  
+				
+				<input type="text" placeholder="Usuário" name="email" required>
+				<input type="password" placeholder="Senha" name="psw" required>
+			  
+				<button type="submit" class="btn">Entrar</button>
+				<button type="submit" class="btn cancel" onclick="closeForm()">Fechar</button>
+		</form>
+	</div>
+		
 	<header id="header" id="home">
 		<div class="header-top">
 			<div class="container">
@@ -83,7 +102,7 @@
 					<p class="pt-10 pb-10" style="color: #ced4da;">
 						Referência na prestação de serviços, dispondo da melhor experiência de mercado para o mundo empreendedor.
 					</p>
-					<a href="#" class="primary-btn text-uppercase">Entre<a>
+					<a onclick="openForm()" href="#" class="primary-btn text-uppercase">Entre<a>
 				</div>
 			</div>
 		</div>
@@ -361,6 +380,15 @@
 	</footer>
 
 	<!-- End footer Area -->
+	<script>
+		function openForm() {
+  		document.getElementById("myForm").style.display = "block";
+		}
+
+		function closeForm() {
+  		document.getElementById("myForm").style.display = "none";
+		}
+	</script>
 	
 	<script src="https://code.jquery.com/jquery-3.2.1.min.js"
 		integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
