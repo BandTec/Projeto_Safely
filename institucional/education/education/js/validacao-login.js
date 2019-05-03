@@ -19,8 +19,8 @@ router.get('/', (req, res, next) => {
 });
 
 router.post('/', (req, res, next) => {
-    var username = req.body.username;
-    var password = req.body.passwd;
+    var username = req.body.usuario;
+    var password = req.body.senha;
 
     if (isNull(username) || isNull(password)) {
         console.log('Invalid username and/or password!');
@@ -29,7 +29,7 @@ router.post('/', (req, res, next) => {
         });
     } else {
 
-        Database.query(`SELECT * FROM teste_cadastro WHERE username = '${username}';`).then(results => {
+        Database.query(`SELECT * FROM usuario WHERE usuario = '${username}';`).then(results => {
             results = results.recordsets[0];
             if (results.length > 0) {
                 let decryptedPassword = cryptr.decrypt(results[0].senha);
