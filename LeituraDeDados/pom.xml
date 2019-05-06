@@ -17,5 +17,21 @@
             <artifactId>oshi-core</artifactId>
             <version>3.13.0</version>
         </dependency>
+        
+        <dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.2.2.jre11</version>
+        </dependency>
     </dependencies>
+    
+    <repositories>
+        
+        <repository>
+          <id>redshift</id>
+          <url>http://redshift-maven-repository.s3-website-us-east-1.amazonaws.com/release</url>
+        </repository>
+
+    </repositories>
+    <name>LeituraDeDados</name>
 </project>

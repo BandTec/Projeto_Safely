@@ -12,10 +12,14 @@ import oshi.util.FormatUtil;
  *
  * @author ntborges
  */
-public class AlertaComponentes {
+ class AlertaComponentes {
     
-    public double maximoCPU;
+    private final double maximoCPU;
     public long total, usado;
+    
+    public double getmaximoCPU() {
+        return maximoCPU;
+    }
     
      public AlertaComponentes() {
         maximoCPU = 70;

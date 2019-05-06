@@ -30,35 +30,41 @@ import oshi.software.os.OperatingSystem;
 //import oshi.software.os.OperatingSystemVersion;
 import oshi.util.FormatUtil;
 
+//banco de dados 
+
+import java.sql.Connection;
+import java.sql.SQLException;
+
 /**
  *
  * @author Aluno
  */
 public class Coletor {
-    public static void main(String[] args)  {
-                
-       
+    public static void main(String[] args) throws SQLException  {          
+            
        //instanciando os objetos
        SystemInfo system = new SystemInfo();
-    
+       
+       //sistema operacional
        OperatingSystem os = system.getOperatingSystem();
-       HardwareAbstractionLayer hardware = system.getHardware();
-       ComputerSystem maquina = hardware.getComputerSystem();         
+       //hardware - informações da máquina
+       HardwareAbstractionLayer hardware = system.getHardware(); 
+       ComputerSystem maquina = hardware.getComputerSystem();   
+       // informações do processador
        CentralProcessor cpu = hardware.getProcessor();
+       // informações da memória 
        GlobalMemory memoria = hardware.getMemory();
    
-
-       System.out.println("");
         
        //Informações do sistema operacional
        System.out.println("Sistema operacional: ");
        System.out.println(os);
-       
+            
        // Informações da maquina
    
        //so.getProcessCount();
        // Thread = so.getThreadCount();
-       NetworkParams net = os.getNetworkParams();
+        NetworkParams net = os.getNetworkParams();
        
         System.out.println("");
         System.out.println("Informações da máquina " + "\n");
