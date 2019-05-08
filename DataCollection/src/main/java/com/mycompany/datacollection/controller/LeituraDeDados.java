@@ -6,9 +6,9 @@
 package com.mycompany.datacollection.controller;
 
 import com.mycompany.datacollection.model.LogUso;
-import java.sql.SQLException;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
+import oshi.hardware.ComputerSystem;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
 
@@ -18,19 +18,32 @@ import oshi.software.os.OperatingSystem;
  * @author Natalia Tayoane
  */
 public class LeituraDeDados {
-    
-    SystemInfo system = new SystemInfo();
+   
        
+       public void leituraUso()  {
+                  
+       SystemInfo system = new SystemInfo();
+        
        //sistema operacional
        OperatingSystem os = system.getOperatingSystem();
        //hardware - informações da máquina
-       HardwareAbstractionLayer hardware = system.getHardware();  
+       HardwareAbstractionLayer hardware = system.getHardware(); 
        // informações do processador
        CentralProcessor cpu = hardware.getProcessor();
-    
-       LogUso log = new LogUso();
-  
-  
+       
+           
+            LogUso logCpu = new LogUso(); 
+        
+            logCpu.setUse((float) cpu.getSystemCpuLoad());
+            logCpu.setProcesses(os.getProcessCount());
+            logCpu.setThreads(os.getThreadCount());
+            logCpu.setInterrupts(cpu.getInterrupts());
+            logCpu.setUptime(cpu.getSystemUptime());
+            logCpu.setContextSwitches(cpu.getContextSwitches());
+            
+            logCpu.getProcesses();
+            
+       }
   
 } 
      

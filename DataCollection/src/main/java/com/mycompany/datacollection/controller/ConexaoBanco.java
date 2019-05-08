@@ -10,6 +10,7 @@ package com.mycompany.datacollection.controller;
  * @author Natalia Tayoane
  */
 
+import com.mycompany.datacollection.model.LogUso;
 import java.sql.Connection;
 import java.sql.Statement;
 import java.sql.DriverManager;
@@ -24,6 +25,8 @@ public class ConexaoBanco {
     static final String DATABASE_URL = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely";
    
     public static void main(String[] args){
+           
+        
         Connection conexao = null; // gerencia a conexao
         Statement comando = null; // comando de consulta
         ResultSet resultado = null; // gerencia os resultados

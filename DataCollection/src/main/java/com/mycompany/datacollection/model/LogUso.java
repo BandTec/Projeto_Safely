@@ -11,8 +11,9 @@ package com.mycompany.datacollection.model;
  */
 public class LogUso {
     
-    private float uptime, processes, threads, load, speed,  
-                  interrupts, contextSwitches, size, use, availabre;
+    private float uptime, load, speed, contextSwitches, size, use, availabre;
+    private int threads;
+    private long processes, interrupts;
     
     public float getUptime(){
         return uptime;
@@ -22,20 +23,20 @@ public class LogUso {
         this.uptime = uptime;
     }
     
-     public float getProcesses(){
+     public long getProcesses(){
         return processes;
     }
     
-    public void setProcesses(float processes){
-        this.processes = processes;
+   public void setProcesses(int processCount) {
+        processes = processCount;
     }
     
-     public float gettTreads(){
+     public int getThreads(){
         return threads;
     }
     
-    public void setThreads(float threads ){
-        this.threads = threads;
+     public void setThreads(int threadCount) {
+       this.threads = threadCount;
     }
     
      public float getLoad(){
@@ -54,11 +55,11 @@ public class LogUso {
         this.speed = speed ;
     }
     
-       public float getInterrupts(){
+       public long getInterrupts(){
         return interrupts ;
     }
     
-    public void setInterrupts(float interrupts ){
+    public void setInterrupts(long interrupts ){
         this.interrupts = interrupts;
     }
     
@@ -94,4 +95,8 @@ public class LogUso {
      public void setAvailabre(float availabre){
         this.availabre =  availabre ;
     }
+
+    
+
+    
 }
