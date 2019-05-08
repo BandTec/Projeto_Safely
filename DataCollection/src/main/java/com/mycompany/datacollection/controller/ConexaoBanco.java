@@ -21,12 +21,14 @@ import java.sql.SQLException;
 public class ConexaoBanco {
     
     // URL do banco de dados                             
-    static final String DATABASE_URL = "jdbc:sqlserver://189.86.41.19/database=Safely";
+    static final String DATABASE_URL = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely";
    
     public static void main(String[] args){
         Connection conexao = null; // gerencia a conexao
         Statement comando = null; // comando de consulta
         ResultSet resultado = null; // gerencia os resultados
+     
+       
         
         // conecta-se ao banco de dados e realiza consultas
       try 

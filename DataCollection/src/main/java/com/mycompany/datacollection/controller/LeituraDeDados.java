@@ -6,6 +6,7 @@
 package com.mycompany.datacollection.controller;
 
 import com.mycompany.datacollection.model.LogUso;
+import java.sql.SQLException;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
 import oshi.hardware.HardwareAbstractionLayer;
@@ -28,10 +29,9 @@ public class LeituraDeDados {
        CentralProcessor cpu = hardware.getProcessor();
     
        LogUso log = new LogUso();
-  /*  
-  try {
-    log.setProcesses(os.getProcessCount());
-    log.setThreads(os.getThreadCount()); } */
+  
+  
+  
 } 
      
    

@@ -5,30 +5,12 @@
  */
 package com.mycompany.datacollection.model;
 
-import java.util.Arrays;
-import oshi.SystemInfo;
-import oshi.hardware.ComputerSystem;
-import oshi.hardware.HardwareAbstractionLayer;
-import oshi.software.os.NetworkParams;
-import oshi.software.os.OperatingSystem;
-
 /**
  *
  * @author ntborges
  */
 public class MaquinaFisica {
-    
-       //instanciando os objetos
-     SystemInfo system = new SystemInfo();
-     
-     //sistema operacional
-     OperatingSystem os = system.getOperatingSystem();
-     NetworkParams net = os.getNetworkParams();
-     
-     //hardware - informações da máquina
-     HardwareAbstractionLayer hardware = system.getHardware(); 
-     ComputerSystem maquina = hardware.getComputerSystem();  
-    
+        
      private String SistemaOperacional, hostName, domain, dnsServers, IPv4, IPv6;
      private String manufacturer, model, serialNumber; 
      private int idMaquinaFisica;
@@ -108,5 +90,9 @@ public class MaquinaFisica {
      public String getSerialNumber(){
          return serialNumber;
      }    
+
+    public void setHostName(String hostName) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
     
 }

@@ -20,9 +20,10 @@
         </dependency>
         
         <dependency>
-    <groupId>com.microsoft.sqlserver</groupId>
-    <artifactId>mssql-jdbc</artifactId>
-    <version>7.2.2.jre11</version>
-</dependency>
+            <groupId>com.microsoft.sqlserver</groupId>
+            <artifactId>mssql-jdbc</artifactId>
+            <version>7.2.2.jre11</version>
+        </dependency>
+
     </dependencies>
 </project>
