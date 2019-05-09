@@ -40,8 +40,9 @@ import java.sql.SQLException;
  * @author Aluno
  */
 public class Coletor {
-    public static void main(String[] args) throws SQLException  {          
-            
+    public static void main(String[] args) throws SQLException  {  
+        
+  
        //instanciando os objetos
        SystemInfo system = new SystemInfo();
        

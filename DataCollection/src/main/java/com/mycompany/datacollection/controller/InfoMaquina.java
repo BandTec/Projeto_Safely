@@ -8,7 +8,9 @@ package com.mycompany.datacollection.controller;
 import com.mycompany.datacollection.model.Componente;
 import com.mycompany.datacollection.model.MaquinaFisica;
 import oshi.SystemInfo;
+import oshi.hardware.CentralProcessor;
 import oshi.hardware.ComputerSystem;
+import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.NetworkParams;
 import oshi.software.os.OperatingSystem;
@@ -28,10 +30,17 @@ public class InfoMaquina {
      //hardware - informações da máquina
      HardwareAbstractionLayer hardware = system.getHardware(); 
      ComputerSystem maquina = hardware.getComputerSystem(); 
+     // informações do processador
+       CentralProcessor cpu = hardware.getProcessor();
+       // informações da memória 
+       GlobalMemory memoria = hardware.getMemory();
     
     MaquinaFisica fisica = new MaquinaFisica();
     
-    Componente componente = new Componente();
+    Componente compCPU = new Componente();
     
+    public void InfoCompCPU(){
+       compCPU.setNome(cpu.getName());    
+    }
    
 }

@@ -19,10 +19,7 @@ import oshi.software.os.OperatingSystem;
  */
 public class LeituraDeDados {
    
-       
-       public void leituraUso()  {
-                  
-       SystemInfo system = new SystemInfo();
+        SystemInfo system = new SystemInfo();
         
        //sistema operacional
        OperatingSystem os = system.getOperatingSystem();
@@ -30,8 +27,9 @@ public class LeituraDeDados {
        HardwareAbstractionLayer hardware = system.getHardware(); 
        // informações do processador
        CentralProcessor cpu = hardware.getProcessor();
+               
        
-           
+    public LeituraDeDados() {
             LogUso logCpu = new LogUso(); 
         
             logCpu.setUse((float) cpu.getSystemCpuLoad());
@@ -43,7 +41,7 @@ public class LeituraDeDados {
             
             logCpu.getProcesses();
             
-       }
+}
   
 } 
      
