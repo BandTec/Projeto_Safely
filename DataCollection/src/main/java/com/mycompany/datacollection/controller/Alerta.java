@@ -13,23 +13,21 @@ import oshi.util.FormatUtil;
  * @author Natalia Tayoane
  */
 public class Alerta {
-    
     private final double maximoCPU;
-    private long total, usado;
+    private double total;
+    private double usado;
     
-    public Alerta(long total, long usado) {
+    public Alerta(double total, double usado) {
         maximoCPU = 70;
         this.total = total;
         this.usado = usado;
     }
    
     public void usoCPU(){  
-        
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMinimumFractionDigits(1);
 
         //Condição para o alerta
-        
         if (usado >= maximoCPU) {
             System.out.println("Sua CPU load atingiu o limite de 70% ! " + "Uso: " + (Math.round(usado)) + "%" );
         } 
@@ -37,61 +35,55 @@ public class Alerta {
 
    
     public void usoRAM(){ 
-        
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMinimumFractionDigits(1);
         
-        long MaxRAM = (long) (total * 0.7);
+        double MaxRAM = (total * 0.7);
         
         if (usado >= MaxRAM) {
-            System.out.println("Sua memória RAM atingiu o limite de 70% " + (FormatUtil.formatBytes(usado))+ "bytes" );
+            System.out.println("Sua memória RAM atingiu o limite de 70% " + (FormatUtil.formatBytes((long) usado))+ "bytes" );
         } 
     }
     
     public void usoSwap(){ 
-        
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMinimumFractionDigits(1);
         
-        long MaxSwap = (long) (total * 0.7);
+        double MaxSwap =  (total * 0.7);
          
         if (usado >= MaxSwap) {
-            System.out.println("Sua memória Swap atingiu o limite de 70% " + (FormatUtil.formatBytes(usado))+ "bytes" );
+            System.out.println("Sua memória Swap atingiu o limite de 70% " + (FormatUtil.formatBytes((long) usado))+ "bytes" );
         } 
     }
     
     public void usoDisco(){
-        
-        long Maxdisk = (long) (total * 0.7);
+        double Maxdisk = (total * 0.7);
 
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMinimumFractionDigits(1);
      
         if (usado >= Maxdisk) {
-            System.out.println("Sua memória Swap atingiu o limite de 70%" + (FormatUtil.formatBytes(usado))+ "bytes" );
+            System.out.println("Sua memória Swap atingiu o limite de 70%" + (FormatUtil.formatBytes((long) usado))+ "bytes" );
         } 
     }
-    
-    public double getmaximoCPU() {
+
+    public double getMaximoCPU() {
         return maximoCPU;
     }
-    
-    public long getTotal() {
+
+    public double getTotal() {
         return total;
     }
-     
-    public void setTotal(long total) {
-        this.total = total;
-    }
-     
-    public long getUsado() {
+
+    public double getUsado() {
         return usado;
     }
-     
-    public void setUsado(long usado) {
-        this.usado = usado;
+
+    public void setTotal(double total) {
+        this.total = total;
     }
-     
-    
-   
+
+    public void setUsado(double usado) {
+        this.usado = usado;
+    }   
 }

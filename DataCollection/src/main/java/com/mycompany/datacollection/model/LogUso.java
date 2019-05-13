@@ -10,93 +10,99 @@ package com.mycompany.datacollection.model;
  * @author Natalia Borges
  */
 public class LogUso {
-    
-    private float uptime, load, speed, contextSwitches, size, use, availabre;
-    private int threads;
-    private long processes, interrupts;
-    
-    public float getUptime(){
-        return uptime;
-    }
-    
-    public void setUptime(float uptime){
-        this.uptime = uptime;
-    }
-    
-     public long getProcesses(){
-        return processes;
-    }
-    
-   public void setProcesses(int processCount) {
-        processes = processCount;
-    }
-    
-     public int getThreads(){
-        return threads;
-    }
-    
-     public void setThreads(int threadCount) {
-       this.threads = threadCount;
-    }
-    
-     public float getLoad(){
-        return load ;
-    }
-    
-    public void setLoad(float load ){
-        this.load = load ;
-    }
-    
-       public float getSpeed(){
-        return speed ;
-    }
-    
-    public void setSpeed(float speed ){
-        this.speed = speed ;
-    }
-    
-       public long getInterrupts(){
-        return interrupts ;
-    }
-    
-    public void setInterrupts(long interrupts ){
-        this.interrupts = interrupts;
-    }
-    
-       
-    public float getContextSwitches(){
-        return contextSwitches;
-    }
-    
-    public void setContextSwitches(float contextSwitches ){
-        this.contextSwitches = contextSwitches;
-    }
-    
-    public float getSize(){
-        return size ;
-    }
-    
-    public void setSize(float size ){
-        this.size = size ;
-    }
-    
-      public float getUse(){
-        return use ;
-    }
-    
-    public void setUse(float use ){
-        this.use = use ;
-    }
-    
-    public float getAvailabre(){
-        return availabre;
-    }
-    
-     public void setAvailabre(float availabre){
-        this.availabre =  availabre ;
+    private double tempoDeAtividade;
+    private double cargaCPU;
+    private double velocidadeDeLeitura;
+    private double interruptores;
+    private double tamanho;
+    private double ocupado;
+    private double disponivel;
+    private double processos;
+    private double interrupcoes;
+    private int topicos;
+
+    public double getCargaCPU() {
+        return cargaCPU;
     }
 
-    
+    public double getDisponivel() {
+        return disponivel;
+    }
 
-    
+    public double getInterrupcoes() {
+        return interrupcoes;
+    }
+
+    public double getInterruptores() {
+        return interruptores;
+    }
+
+    public double getOcupado() {
+        return ocupado;
+    }
+
+    public double getProcessos() {
+        return processos;
+    }
+
+    public double getTamanho() {
+        return tamanho;
+    }
+
+    public double getTempoDeAtividade() {
+        return tempoDeAtividade;
+    }
+
+    public int getTopicos() {
+        return topicos;
+    }
+
+    public double getVelocidadeDeLeitura() {
+        return velocidadeDeLeitura;
+    }
+
+    public void setCargaCPU(double cargaCPU) {
+        this.cargaCPU = cargaCPU;
+    }
+
+    public void setDisponivel(double disponivel) {
+        this.disponivel = disponivel;
+    }
+
+    public void setInterrupcoes(double interrupcoes) {
+        this.interrupcoes = interrupcoes;
+    }
+
+    public void setInterruptores(double interruptores) {
+        this.interruptores = interruptores;
+    }
+
+    public void setOcupado(double ocupado) {
+        this.ocupado = ocupado;
+    }
+
+    public void setProcessos(double processos) {
+        this.processos = processos;
+    }
+
+    public void setTamanho(double tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public void setTempoDeAtividade(double tempoDeAtividade) {
+        this.tempoDeAtividade = tempoDeAtividade;
+    }
+
+    public void setTopicos(int topicos) {
+        this.topicos = topicos;
+    }
+
+    public void setVelocidadeDeLeitura(double velocidadeDeLeitura) {
+        this.velocidadeDeLeitura = velocidadeDeLeitura;
+    }
+
+    public void getInterrupcoes(long interrupts) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+     
 }

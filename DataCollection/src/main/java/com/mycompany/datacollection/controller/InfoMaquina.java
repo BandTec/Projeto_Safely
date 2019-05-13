@@ -20,27 +20,27 @@ import oshi.software.os.OperatingSystem;
  * @author ntborges
  */
 public class InfoMaquina {
-    
+
     SystemInfo system = new SystemInfo();
-    
+
     //sistema operacional
-     OperatingSystem os = system.getOperatingSystem();
-     NetworkParams net = os.getNetworkParams();
-     
-     //hardware - informações da máquina
-     HardwareAbstractionLayer hardware = system.getHardware(); 
-     ComputerSystem maquina = hardware.getComputerSystem(); 
-     // informações do processador
-       CentralProcessor cpu = hardware.getProcessor();
-       // informações da memória 
-       GlobalMemory memoria = hardware.getMemory();
-    
+    OperatingSystem os = system.getOperatingSystem();
+    NetworkParams net = os.getNetworkParams();
+
+    //hardware - informações da máquina
+    HardwareAbstractionLayer hardware = system.getHardware();
+    ComputerSystem maquina = hardware.getComputerSystem();
+    // informações do processador
+    CentralProcessor cpu = hardware.getProcessor();
+    // informações da memória 
+    GlobalMemory memoria = hardware.getMemory();
+
     MaquinaFisica fisica = new MaquinaFisica();
-    
+
     Componente compCPU = new Componente();
-    
-    public void InfoCompCPU(){
-       compCPU.setNome(cpu.getName());    
+
+    public void InfoCompCPU() {
+        compCPU.setNome(cpu.getName());
     }
-   
+
 }

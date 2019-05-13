@@ -10,88 +10,95 @@ package com.mycompany.datacollection.model;
  * @author ntborges
  */
 public class Componente {
-    private int idComponente, particao;
-    private String nome, identificador, familia, idProcessador, 
-                   fornecedor, stepping, model, descricao;
-    
-    public int getIdComponente(){
-        return idComponente;
+    private int idComponente;
+    private int particao;
+    private String nome;
+    private String identificador;
+    private String familia;
+    private String idProcessador;
+    private String fornecedor;
+    private String stepping;
+    private String modelo;
+    private String descricao;
+
+    public String getDescricao() {
+        return descricao;
     }
     
-    public void setIdComponente(int id){
-        this.idComponente = id;
-    }
-    
-    public int getParticao(){
-        return particao;
-    }
-    
-    public void setParticao(int particao){
-        this.particao = particao;
-    }
-    
-        
-    public String getNome(){
-        return nome;
-    }
-    
-    public void setNome(String nome){
-        this.nome = nome;
-    }
-    
-    public String getIdentificador(){
-        return identificador;
-    }
-    
-     public void setIdentificador(String identificador ){
-        this.identificador = identificador;
-    }
-    
-     public String getfamilia(){
+    public String getFamilia() {
         return familia;
     }
-    
-     public void setFamilia(String familia ){
-        this.familia = familia;
-    }
-     
-    public String getIdProcessador(){
-        return idProcessador;
-    }
-    
-     public void setIdProcessador(String idProcessador ){
-        this.idProcessador = idProcessador;
-    }
-     
-     public String getFornecedor(){
+
+    public String getFornecedor() {
         return fornecedor;
     }
-    
-     public void setFornecedor(String fornecedor ){
-        this.fornecedor = fornecedor;
+
+    public int getIdComponente() {
+        return idComponente;
     }
-     
-     public String getStepping(){
+
+    public String getIdProcessador() {
+        return idProcessador;
+    }
+
+    public String getIdentificador() {
+        return identificador;
+    }
+
+    public String getModelo() {
+        return modelo;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public int getParticao() {
+        return particao;
+    }
+
+    public String getStepping() {
         return stepping;
     }
-    
-     public void setStepping(String stepping ){
-        this.stepping = stepping;
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
     }
-     
-     public String getModel(){
-         return model;
-     }
-    
-     public void setModel( String model){
-         this.model = model;
-     }
-     
-     public String getDescricao(){
-         return descricao;
-     }
-     
-      public void setDescricao(String descricao){
-         this.descricao = descricao;
-     }
+
+    public void setFamilia(String familia) {
+        this.familia = familia;
+    }
+
+    public void setFornecedor(String fornecedor) {
+        this.fornecedor = fornecedor;
+    }
+
+    public void setIdComponente(int idComponente) {
+        this.idComponente = idComponente;
+    }
+
+    public void setIdProcessador(String idProcessador) {
+        this.idProcessador = idProcessador;
+    }
+
+    public void setIdentificador(String identificador) {
+        this.identificador = identificador;
+    }
+
+    public void setModelo(String modelo) {
+        this.modelo = modelo;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public void setParticao(int particao) {
+        this.particao = particao;
+    }
+
+    public void setStepping(String stepping) {
+        this.stepping = stepping;
+    } 
 }
+

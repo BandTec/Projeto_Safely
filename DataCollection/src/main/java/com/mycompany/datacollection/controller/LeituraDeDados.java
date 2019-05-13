@@ -30,15 +30,9 @@ public class LeituraDeDados {
     public LogUso LeituraDeDados() {
         LogUso logCpu = new LogUso();
 
-        logCpu.setUse((float) cpu.getSystemCpuLoad());
-        logCpu.setProcesses(os.getProcessCount());
-        logCpu.setThreads(os.getThreadCount());
-        logCpu.setInterrupts(cpu.getInterrupts());
-        logCpu.setUptime(cpu.getSystemUptime());
-        logCpu.setContextSwitches(cpu.getContextSwitches());
-
-        logCpu.getProcesses();
-        return logCpu;
+        logCpu.setOcupado((double) cpu.getSystemCpuLoad());
+        logCpu.setProcessos(os.getProcessCount());
+        logCpu.setTopicos(os.getThreadCount());
+        logCpu.getInterrupcoes(cpu.getInterrupts());    
     }
-
 }

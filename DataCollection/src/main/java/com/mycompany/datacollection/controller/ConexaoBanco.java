@@ -14,7 +14,6 @@ import java.sql.SQLException;
  * @author ntborges
  */
 public class ConexaoBanco {
-
     private static String PATH_SQL = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely;user=s_adm@safely;password=@Bestlab;encrypt=true;trustServerCertificate=false;hostNameInCertificate=*.database.windows.net;loginTimeout=30;";
     
     public Connection getInstance() {
