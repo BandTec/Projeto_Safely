@@ -21,6 +21,7 @@ public class ConexaoBanco {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
             try {
+                System.out.println("passou aqui");
                 return DriverManager.getConnection(PATH_SQL);
             } // Handle any errors that may have occurred.
             catch (SQLException e) {

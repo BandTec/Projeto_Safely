@@ -6,6 +6,7 @@
 package com.mycompany.datacollection.controller;
 import com.mycompany.datacollection.model.Componente;
 import com.mycompany.datacollection.model.LogUso;
+import java.sql.Connection;
 
 /**
  *
@@ -17,12 +18,13 @@ public class EnvioBanco {
     
    
     public static void main(String[] args){
-        
-       try{
-           Componente comp = new Componente();
-           System.out.println(comp.getNome());
-           
-       }
+        try {
+            LeituraDeDados nat = new LeituraDeDados();
+            System.out.println(nat.LeituraDeDados());
+            
+        } catch (Exception e) {
+            System.out.println(e.toString());
+        }
         
     }
     
