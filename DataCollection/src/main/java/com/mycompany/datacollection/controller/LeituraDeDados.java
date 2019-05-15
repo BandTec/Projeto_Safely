@@ -26,6 +26,9 @@ public class LeituraDeDados {
     HardwareAbstractionLayer hardware = system.getHardware();
     // informações do processador
     CentralProcessor cpu = hardware.getProcessor();
+        
+        
+    /**
 
     public LogUso LeituraDeDados() {
         LogUso logCpu = new LogUso();
@@ -34,5 +37,5 @@ public class LeituraDeDados {
         logCpu.setProcessos(os.getProcessCount());
         logCpu.setTopicos(os.getThreadCount());
         logCpu.getInterrupcoes(cpu.getInterrupts());    
-    }
+    } **/
 }

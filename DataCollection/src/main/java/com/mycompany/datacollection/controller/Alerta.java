@@ -13,16 +13,21 @@ import oshi.util.FormatUtil;
  * @author Natalia Tayoane
  */
 public class Alerta {
-    private final double maximoCPU;
+    private double maximoCPU;
     private double total;
     private double usado;
     
+    public Alerta(){
+    }
+    
+
     public Alerta(double total, double usado) {
-        maximoCPU = 70;
+        this.maximoCPU = 70;
         this.total = total;
         this.usado = usado;
     }
-   
+    
+    
     public void usoCPU(){  
         DecimalFormat decimalFormat = new DecimalFormat();
         decimalFormat.setMinimumFractionDigits(1);

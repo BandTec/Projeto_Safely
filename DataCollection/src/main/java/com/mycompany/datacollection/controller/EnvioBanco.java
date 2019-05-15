@@ -15,16 +15,17 @@ import java.sql.Connection;
 
 
 public class EnvioBanco {
+    
     public static void main(String[] args){
-        try {
+      /**  try {
             LeituraDeDados leitura = new LeituraDeDados();
             System.out.println(leitura.LeituraDeDados());
             
         } catch (Exception e) {
             System.out.println(e.toString());
-        }
+        }**/
         
-    }
+    } 
     
 }    
    
