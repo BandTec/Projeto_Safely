@@ -9,7 +9,7 @@ package com.mycompany.datacollection.model;
  *
  * @author ntborges
  */
-public class MaquinaVirtual {
+public class MaquinaVirtual extends MaquinaFisica {
     private int idMaquinaVirtual;
     private boolean estado;
     private String nome;
@@ -17,6 +17,22 @@ public class MaquinaVirtual {
     private String consumo;
     private String alocacao;
 
+    public MaquinaVirtual() {
+    }
+
+    public MaquinaVirtual(int idMaquinaVirtual, boolean estado, String nome, String descricao, String consumo, String alocacao) {
+        this.idMaquinaVirtual = idMaquinaVirtual;
+        this.estado = estado;
+        this.nome = nome;
+        this.descricao = descricao;
+        this.consumo = consumo;
+        this.alocacao = alocacao;
+    }
+
+    public boolean getEstado() {
+        return estado;
+    }
+    
     public String getAlocacao() {
         return alocacao;
     }
@@ -36,6 +52,7 @@ public class MaquinaVirtual {
     public String getNome() {
         return nome;
     }
+     
 
     public void setAlocacao(String alocacao) {
         this.alocacao = alocacao;
@@ -60,5 +77,5 @@ public class MaquinaVirtual {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    
+
 }

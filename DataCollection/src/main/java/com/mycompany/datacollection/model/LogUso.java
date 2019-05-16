@@ -21,6 +21,22 @@ public class LogUso {
     private double interrupcoes;
     private int topicos;
 
+    public LogUso() {
+    }
+
+    public LogUso(double tempoDeAtividade, double cargaCPU, double velocidadeDeLeitura, double interruptores, double tamanho, double ocupado, double disponivel, double processos, double interrupcoes, int topicos) {
+        this.tempoDeAtividade = tempoDeAtividade;
+        this.cargaCPU = cargaCPU;
+        this.velocidadeDeLeitura = velocidadeDeLeitura;
+        this.interruptores = interruptores;
+        this.tamanho = tamanho;
+        this.ocupado = ocupado;
+        this.disponivel = disponivel;
+        this.processos = processos;
+        this.interrupcoes = interrupcoes;
+        this.topicos = topicos;
+    }
+
     public double getCargaCPU() {
         return cargaCPU;
     }

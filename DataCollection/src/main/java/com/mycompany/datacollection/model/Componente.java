@@ -21,6 +21,22 @@ public class Componente {
     private String modelo;
     private String descricao;
 
+    public Componente() {
+    }
+
+    public Componente(int idComponente, int particao, String nome, String identificador, String familia, String idProcessador, String fornecedor, String stepping, String modelo, String descricao) {
+        this.idComponente = idComponente;
+        this.particao = particao;
+        this.nome = nome;
+        this.identificador = identificador;
+        this.familia = familia;
+        this.idProcessador = idProcessador;
+        this.fornecedor = fornecedor;
+        this.stepping = stepping;
+        this.modelo = modelo;
+        this.descricao = descricao;
+    }
+
     public String getDescricao() {
         return descricao;
     }

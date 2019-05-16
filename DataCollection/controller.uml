@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>com.mycompany.datacollection.controller</OriginalElement>
+  <nodes>
+    <node x="510.0" y="382.0">com.mycompany.datacollection.controller.EnvioBanco</node>
+    <node x="0.0" y="382.0">com.mycompany.datacollection.controller.LeituraDeDados</node>
+    <node x="0.0" y="0.0">com.mycompany.datacollection.controller.Alerta</node>
+    <node x="223.0" y="0.0">com.mycompany.datacollection.controller.InfoMaquina</node>
+    <node x="0.0" y="542.0">com.mycompany.datacollection.controller.AnaliseLucro</node>
+    <node x="284.0" y="382.0">com.mycompany.datacollection.controller.ConexaoBanco</node>
+  </nodes>
+  <notes />
+  <edges />
+  <settings layout="Hierarchic Group" zoom="1.0" x="214.5" y="157.5" />
+  <SelectedNodes />
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
