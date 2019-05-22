@@ -26,7 +26,6 @@ public class Leitura {
 
     //construtor completo
 
-
     public Leitura(int idMaquina, int idServico, long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
         this.idMaquina = idMaquina;
         this.idServico = idServico;
