@@ -3,16 +3,20 @@ package Model;
 public class Processador {
     private int idProcessador;
     private String nome;
-    private double clock;
     private String ultimaModificacao;
 
     public Processador() {
     }
 
-    public Processador(int idProcessador, String nome, double clock, String ultimaModificacao) {
+    //construtor para inicializar os dados com o oshi
+    public Processador(String nome) {
+        this.nome = nome;
+    }
+
+    //construtor completo
+    public Processador(int idProcessador, String nome, String ultimaModificacao) {
         this.idProcessador = idProcessador;
         this.nome = nome;
-        this.clock = clock;
         this.ultimaModificacao = ultimaModificacao;
     }
 
@@ -30,14 +34,6 @@ public class Processador {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public double getClock() {
-        return clock;
-    }
-
-    public void setClock(double clock) {
-        this.clock = clock;
     }
 
     public String getUltimaModificacao() {

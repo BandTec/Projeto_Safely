@@ -1,0 +1,23 @@
+{
+    "database": {
+        "server": "nomedoservidor.database.windows.net",
+        "user": "usuarioQueOlhaQueries",
+        "password": "suaSenha",
+        "database": "nomeDoBanco",
+        "options": {
+            "encrypt": true
+        }
+    },
+    "database2": {
+        "server": "nomeDoBanco.database.windows.net",
+        "user": "usuarioDoBanco",
+        "password": "senhaDoBanco",
+        "database": "nomeDoBanco",
+        "options": {
+            "encrypt": true
+        }
+    },
+    "security": {
+        "key": "CHAVE_SEGURANCA"
+    }
+}

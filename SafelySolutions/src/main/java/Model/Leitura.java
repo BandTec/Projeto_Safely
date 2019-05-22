@@ -3,18 +3,31 @@ package Model;
 public class Leitura {
     private int idMaquina;
     private int idServico;
-    private int utilizado;
-    private int disponivel;
-    private int processos;
-    private int threads;
-    private int interrupcoes;
-    private int velocidadeDeLeitura;
+    private long utilizado;
+    private long disponivel;
+    private long processos;
+    private long threads;
+    private long interrupcoes;
+    private long velocidadeDeLeitura;
 
 
     public Leitura() {
     }
 
-    public Leitura(int idMaquina, int idServico, int utilizado, int disponivel, int processos, int threads, int interrupcoes, int velocidadeDeLeitura) {
+    //Construtor para inicializar os dados do oshi
+    public Leitura(long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
+        this.utilizado = utilizado;
+        this.disponivel = disponivel;
+        this.processos = processos;
+        this.threads = threads;
+        this.interrupcoes = interrupcoes;
+        this.velocidadeDeLeitura = velocidadeDeLeitura;
+    }
+
+    //construtor completo
+
+
+    public Leitura(int idMaquina, int idServico, long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
         this.idMaquina = idMaquina;
         this.idServico = idServico;
         this.utilizado = utilizado;
@@ -41,51 +54,51 @@ public class Leitura {
         this.idServico = idServico;
     }
 
-    public int getUtilizado() {
+    public long getUtilizado() {
         return utilizado;
     }
 
-    public void setUtilizado(int utilizado) {
+    public void setUtilizado(long utilizado) {
         this.utilizado = utilizado;
     }
 
-    public int getDisponivel() {
+    public long getDisponivel() {
         return disponivel;
     }
 
-    public void setDisponivel(int disponivel) {
+    public void setDisponivel(long disponivel) {
         this.disponivel = disponivel;
     }
 
-    public int getProcessos() {
+    public long getProcessos() {
         return processos;
     }
 
-    public void setProcessos(int processos) {
+    public void setProcessos(long processos) {
         this.processos = processos;
     }
 
-    public int getThreads() {
+    public long getThreads() {
         return threads;
     }
 
-    public void setThreads(int threads) {
+    public void setThreads(long threads) {
         this.threads = threads;
     }
 
-    public int getInterrupcoes() {
+    public long getInterrupcoes() {
         return interrupcoes;
     }
 
-    public void setInterrupcoes(int interrupcoes) {
+    public void setInterrupcoes(long interrupcoes) {
         this.interrupcoes = interrupcoes;
     }
 
-    public int getVelocidadeDeLeitura() {
+    public long getVelocidadeDeLeitura() {
         return velocidadeDeLeitura;
     }
 
-    public void setVelocidadeDeLeitura(int velocidadeDeLeitura) {
+    public void setVelocidadeDeLeitura(long velocidadeDeLeitura) {
         this.velocidadeDeLeitura = velocidadeDeLeitura;
     }
 }

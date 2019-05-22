@@ -10,6 +10,7 @@ public class Franquia {
     public Franquia() {
     }
 
+    // Construtor completo
     public Franquia(int idFranquia, int idEmpresa, String nome, String usuario, String idMaquina) {
         this.idFranquia = idFranquia;
         this.idEmpresa = idEmpresa;
