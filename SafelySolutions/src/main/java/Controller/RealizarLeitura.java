@@ -29,7 +29,9 @@ public class RealizarLeitura {
         Conexao.executeQuery("select * from usuario");
         System.out.println("aqui");
 
-        Leitura leitura = new Leitura();
+        Leitura leitura = new Leitura()
+
+                cpu
     }
 
 }

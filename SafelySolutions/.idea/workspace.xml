@@ -38,11 +38,23 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/Controller/RealizarLeitura.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="51">
-              <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
+            <state relative-caret-position="437">
+              <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/Model/Leitura.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -74,7 +86,7 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="494">
@@ -109,7 +121,6 @@
         <option value="$PROJECT_DIR$/src/main/java/Controller/Conexao.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/teste.java" />
         <option value="$PROJECT_DIR$/src/main/java/View/teste.form" />
-        <option value="$PROJECT_DIR$/src/main/java/Controller/RealizarLeitura.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/TempoDeAtividade.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Servico.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Disco.java" />
@@ -121,6 +132,7 @@
         <option value="$PROJECT_DIR$/src/main/java/Model/Memoria.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Processador.java" />
         <option value="$PROJECT_DIR$/src/main/java/Model/Leitura.java" />
+        <option value="$PROJECT_DIR$/src/main/java/Controller/RealizarLeitura.java" />
       </list>
     </option>
   </component>
@@ -135,7 +147,7 @@
       <select />
     </treeState>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="240" />
     <option name="y" value="-9" />
     <option name="width" value="1038" />
@@ -150,7 +162,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -184,11 +196,19 @@
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="Controller" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="SafelySolutions" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SafelySolutions" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="Model" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -271,14 +291,15 @@
       <workItem from="1558500983646" duration="81000" />
       <workItem from="1558554206969" duration="151000" />
       <workItem from="1558555294239" duration="451000" />
+      <workItem from="1558564726852" duration="1160000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="26102000" />
+    <option name="totallyTimeSpent" value="27262000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="240" y="-9" width="1038" height="743" extended-state="0" />
+    <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="1" />
@@ -286,7 +307,7 @@
       <window_info id="UI Designer" order="3" />
       <window_info id="Capture Tool" order="4" />
       <window_info id="Favorites" order="5" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.27402863" />
+      <window_info active="true" content_ui="combo" id="Project" order="6" visible="true" weight="0.20726173" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32850242" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.19162641" />
@@ -346,6 +367,18 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-method">
+          <url>file://$PROJECT_DIR$/src/main/java/Model/Leitura.java</url>
+          <line>17</line>
+          <properties class="Model.Leitura" method="&lt;init&gt;">
+            <option name="EMULATED" value="true" />
+          </properties>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="Conexao.executeQuery(&quot;select * from safely&quot;)" language="JAVA" />
@@ -420,19 +453,6 @@
           <caret line="54" column="45" lean-forward="true" selection-start-line="54" selection-start-column="45" selection-end-line="54" selection-end-column="45" />
           <folding>
             <element signature="e#0#11706#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Leitura.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="27" column="4" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="4" />
-          <folding>
-            <element signature="e#1347#1348#0" expanded="true" />
-            <element signature="e#1389#1390#0" expanded="true" />
-            <element signature="e#1501#1502#0" expanded="true" />
-            <element signature="e#1543#1544#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -564,13 +584,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/Controller/RealizarLeitura.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="51">
-          <caret line="3" column="1" selection-start-line="3" selection-start-column="1" selection-end-line="3" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/Controller/Alerta.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="34">
@@ -596,6 +609,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="494">
           <caret line="38" column="10" selection-start-line="38" selection-start-column="10" selection-end-line="38" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Model/Leitura.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="22" column="41" lean-forward="true" selection-start-line="22" selection-start-column="41" selection-end-line="22" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/Controller/RealizarLeitura.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="437">
+          <caret line="33" column="19" selection-start-line="33" selection-start-column="19" selection-end-line="33" selection-end-column="19" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

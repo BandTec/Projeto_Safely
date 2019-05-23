@@ -41,7 +41,7 @@ app.listen(port);
 router.get('/usuario/:usuario/:senha', (req, res) => {
 
     // Via parametro
-    let username = req.params.usuario;
+    let username = req.params.email;
     let password = req.params.senha;
 
     // Funcao de acesso ao banco
