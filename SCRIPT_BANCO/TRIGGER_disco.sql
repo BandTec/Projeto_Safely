@@ -1,0 +1,17 @@
+-- Cria a trigger
+
+CREATE TRIGGER DISCO_datahora ON DISCO
+
+FOR UPDATE
+
+AS
+
+BEGIN
+
+UPDATE DISCO SET ultima_atualizacao = GETDATE()
+
+FROM DISCO
+
+INNER JOIN INSERTED ON DISCO.idDisco = INSERTED.idDisco
+
+END

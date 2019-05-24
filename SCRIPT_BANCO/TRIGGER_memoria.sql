@@ -1,0 +1,17 @@
+-- Cria a trigger
+
+CREATE TRIGGER MEMORIA_datahora ON MEMORIA
+
+FOR UPDATE
+
+AS
+
+BEGIN
+
+UPDATE MEMORIA SET ultima_atualizacao = GETDATE()
+
+FROM MEMORIA
+
+INNER JOIN INSERTED ON MEMORIA.idMemoria = INSERTED.idMemoria
+
+END
