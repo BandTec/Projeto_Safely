@@ -9,6 +9,7 @@ public class Caixa {
     public Caixa() {
     }
 
+    // Construtor completo
     public Caixa(int idCaixa, float entrada, String hora, String data) {
         this.idCaixa = idCaixa;
         this.entrada = entrada;

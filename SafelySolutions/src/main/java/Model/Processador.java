@@ -13,7 +13,17 @@ public class Processador {
     public Processador(String nome) {
         this.nome = nome;
     }
+<<<<<<< HEAD
     
+=======
+
+    //construtor para inicializar os dados com o oshi
+    public Processador(String nome) {
+        this.nome = nome;
+    }
+
+    //construtor completo
+>>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
     public Processador(int idProcessador, String nome, String ultimaModificacao) {
         this.idProcessador = idProcessador;
         this.nome = nome;

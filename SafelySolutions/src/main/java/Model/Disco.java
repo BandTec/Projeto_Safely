@@ -9,6 +9,11 @@ public class Disco {
     public Disco() {
     }
 
+    // Construtor para inicializar os dados do oshi
+    public Disco(String nome, long tamanho){
+        this.nome = nome;
+        this.tamanho = tamanho;
+    }
     public Disco(int idDisco, String nome, String ultimaModificacao, int tamanho) {
         this.idDisco = idDisco;
         this.nome = nome;

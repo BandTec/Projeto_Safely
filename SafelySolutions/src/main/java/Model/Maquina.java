@@ -12,13 +12,15 @@ public class Maquina {
     private String IPv6;
     private String descricao;
     private String ultimaAtualizacao;
-    private String idProcessador;
-    private String idDisco;
-    private String idMemoria;
+    private int idProcessador;
+    private int idDisco;
+    private int idMemoria;
 
     public Maquina() {
     }
 
+
+    //construtor completo - iniciar coma leitura do oshi, apenas o idMaquina não será utilizado durante a inserção no banco
     public Maquina(int idMaquina, String SO, String serialNumber, String versao, String modelo, String dominio, String hotsName, String IPv4, String IPv6, String descricao, String ultimaAtualizacao, String idProcessador, String idDisco, String idMemoria) {
         this.idMaquina = idMaquina;
         this.SO = SO;
@@ -31,7 +33,7 @@ public class Maquina {
         this.IPv6 = IPv6;
         this.descricao = descricao;
         this.ultimaAtualizacao = ultimaAtualizacao;
-        this.idProcessador = idProcessador;
+        this.idProcessador = idProcessador();
         this.idDisco = idDisco;
         this.idMemoria = idMemoria;
     }

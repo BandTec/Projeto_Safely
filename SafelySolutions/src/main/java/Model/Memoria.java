@@ -22,8 +22,20 @@ public class Memoria {
         return "Memoria{ " + "tipo=" + getTipo + ", tamanho=" + getTamanho + '}';
     }
 
+<<<<<<< HEAD
     
     public Memoria(Integer idMemoria, String tipo, long tamanho, String ultimaModificacao) {
+=======
+    //construtor para inicilizar os dados com o oshi
+
+
+    public Memoria(String tipo, long tamanho) {
+        this.tipo = tipo;
+        this.tamanho = tamanho;
+    }
+
+    public Memoria(int idMemoria, String tipo, double tamanho, String ultimaModificacao) {
+>>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
         this.idMemoria = idMemoria;
         this.tipo = tipo;
         this.tamanho =  tamanho;

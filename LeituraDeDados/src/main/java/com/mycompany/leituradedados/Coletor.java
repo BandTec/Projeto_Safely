@@ -56,7 +56,7 @@ public class Coletor {
        // informações da memória 
        GlobalMemory memoria = hardware.getMemory();
    
-        
+
        //Informações do sistema operacional
        System.out.println("Sistema operacional: ");
        System.out.println(os);
@@ -131,7 +131,7 @@ public class Coletor {
        
        
   
-        System.out.println("Processes: " + os.getProcessCount() +  ", Threads: " + os.getThreadCount() +"\n" 
+        System.out.println("Processes: " + os.getProcessCount() +  ", Threads: " + os.getThreadCount() +"\n"
                            + "ContextSwitches/Interrupções: " + cpu.getContextSwitches() + "/" + cpu.getInterrupts());
         cpu.getSystemCpuLoad();
         

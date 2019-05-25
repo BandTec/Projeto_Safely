@@ -9,6 +9,7 @@ import Model.Memoria;
 import java.awt.SystemColor;
 import oshi.SystemInfo;
 import oshi.hardware.CentralProcessor;
+import oshi.hardware.ComputerSystem;
 import oshi.hardware.GlobalMemory;
 import oshi.hardware.HardwareAbstractionLayer;
 import oshi.software.os.OperatingSystem;
@@ -20,7 +21,11 @@ public class RealizarLeitura {
 
     public static void main(String[] args) throws SQLException {
 
+<<<<<<< HEAD
 // fazer a leitura dos metodos INSERT NA VDD TODOS ELES !!! ( os metodos estao na package MODEL ) fazer sobre todos eles no caso
+=======
+        //instanciando os objetos
+>>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
         SystemInfo system = new SystemInfo();
         
         EnvioBanco eb = new EnvioBanco();
@@ -29,8 +34,10 @@ public class RealizarLeitura {
         OperatingSystem os = system.getOperatingSystem();
         //hardware - informações da máquina
         HardwareAbstractionLayer hardware = system.getHardware();
+        ComputerSystem maquina = hardware.getComputerSystem();
         // informações do processador
         CentralProcessor cpu = hardware.getProcessor();
+<<<<<<< HEAD
         //memoria
         //GlobalMemory memory = hardware.getMemory();
         
@@ -49,5 +56,15 @@ public class RealizarLeitura {
        CapturaHardware capturaDisco = new CapturaHardware();  
        capturaDisco.retornaDisco();
         
+=======
+        // informações da memória
+        GlobalMemory memoria = hardware.getMemory();
+        Conexao.executeQuery("select * from usuario");
+        System.out.println("aqui");
+
+        Leitura leitura = new Leitura()
+
+                cpu
+>>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
     }
 }

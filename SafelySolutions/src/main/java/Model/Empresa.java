@@ -8,6 +8,7 @@ public class Empresa {
     public Empresa() {
     }
 
+    //Construtor completo
     public Empresa(int idEmpresa, String nome, String CNPJ) {
         this.idEmpresa = idEmpresa;
         this.nome = nome;

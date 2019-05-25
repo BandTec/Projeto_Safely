@@ -1,0 +1,17 @@
+-- Cria a trigger
+
+CREATE TRIGGER data_hora_leitura ON LEITURA
+
+FOR INSERT
+
+AS
+
+BEGIN
+
+UPDATE LEITURA SET data_hora = GETDATE()
+
+FROM LEITURA
+
+INNER JOIN INSERTED ON LEITURA.idLeitura = INSERTED.idLeitura
+
+END
