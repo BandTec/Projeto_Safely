@@ -3,16 +3,20 @@ package Model;
 public class Processador {
     private int idProcessador;
     private String nome;
-    private double clock;
     private String ultimaModificacao;
 
     public Processador() {
+    }  
+//isso eu mandei para a classe realizar Leitura mas antes fiz um ToStrig do que eu queria pegar 
+    //no caso apenas o nome 
+    
+    public Processador(String nome) {
+        this.nome = nome;
     }
-
-    public Processador(int idProcessador, String nome, double clock, String ultimaModificacao) {
+    
+    public Processador(int idProcessador, String nome, String ultimaModificacao) {
         this.idProcessador = idProcessador;
         this.nome = nome;
-        this.clock = clock;
         this.ultimaModificacao = ultimaModificacao;
     }
 
@@ -32,19 +36,16 @@ public class Processador {
         this.nome = nome;
     }
 
-    public double getClock() {
-        return clock;
-    }
-
-    public void setClock(double clock) {
-        this.clock = clock;
-    }
-
     public String getUltimaModificacao() {
         return ultimaModificacao;
     }
 
     public void setUltimaModificacao(String ultimaModificacao) {
         this.ultimaModificacao = ultimaModificacao;
+    }
+//fiz o toString e ai manda pro realizar leitura mas fazemos o toString com aquilo que queremos visualizar 
+    @Override
+    public String toString() {
+        return "Processador{ " + "nome=" + getNome() + '}';
     }
 }

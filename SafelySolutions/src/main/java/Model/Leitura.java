@@ -14,6 +14,7 @@ public class Leitura {
     public Leitura() {
     }
 
+    
     public Leitura(int idMaquina, int idServico, int utilizado, int disponivel, int processos, int threads, int interrupcoes, int velocidadeDeLeitura) {
         this.idMaquina = idMaquina;
         this.idServico = idServico;
