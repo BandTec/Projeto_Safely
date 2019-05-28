@@ -20,12 +20,12 @@
   display: block;
   font-weight: 400;
   font-size: 13px;
-  line-height: 13px;
+  line-height: 13px; 
   left: 0;
   position: absolute;
   width: 260px;
   text-transform: none;
-}
+} 
 
 .tim-row {
   padding-top: 60px;

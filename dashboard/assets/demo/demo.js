@@ -1,3 +1,5 @@
+
+
 demo = {
   initPickColor: function() {
     $('.pick-class-label').click(function() {
@@ -35,11 +37,13 @@ demo = {
       scales: {
         yAxes: [{
           display: 0,
-          gridLines: 0,
+          // gridLine mudado pra pie
+          pie: 0,
           ticks: {
             display: false
           },
-          gridLines: {
+          // gridLine mudado pra pie
+          pie: {
             zeroLineColor: "transparent",
             drawTicks: false,
             display: false,
@@ -48,11 +52,13 @@ demo = {
         }],
         xAxes: [{
           display: 0,
-          gridLines: 0,
+          // gridLine mudado pra pie
+          pie: 0,
           ticks: {
             display: false
           },
-          gridLines: {
+          // gridLine mudado pra pie
+          pie: {
             zeroLineColor: "transparent",
             drawTicks: false,
             display: false,
@@ -81,7 +87,8 @@ demo = {
     gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
     myChart = new Chart(ctx, {
-      type: 'line',
+      // line mudado pra pie
+      type: 'pie',
       responsive: true,
       data: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -179,6 +186,7 @@ demo = {
       responsive: true,
       scales: {
         yAxes: [{
+          display: 0, // Essa linha tem a função de retirar as linhas do gráfico de pizza
           gridLines: 0,
           gridLines: {
             zeroLineColor: "transparent",
@@ -215,14 +223,18 @@ demo = {
     gradientStroke.addColorStop(0, '#80b6f4');
     gradientStroke.addColorStop(1, chartColor);
 
+    
     var gradientFill = ctx.createLinearGradient(0, 200, 0, 50);
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
+    
 
     var myChart = new Chart(ctx, {
+      // alterado o tipo de gráfico para gráfico de pizza "pie"
       type: 'line',
       data: {
-        labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+        // labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+        labels: ["5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"],
         datasets: [{
           label: "Data",
           borderColor: chartColor,
@@ -313,7 +325,8 @@ demo = {
     gradientFill.addColorStop(1, "rgba(249, 99, 59, 0.40)");
 
     myChart = new Chart(ctx, {
-      type: 'line',
+      // gráfico de pizza alterado
+      type: 'pie',
       responsive: true,
       data: {
         labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
@@ -347,7 +360,8 @@ demo = {
     gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.4));
 
     myChart = new Chart(ctx, {
-      type: 'line',
+      // gráfico de linha mudado para gráfico de pizza "pie"
+      type: 'pie',
       responsive: true,
       data: {
         labels: ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
@@ -376,9 +390,10 @@ demo = {
     gradientFill.addColorStop(1, hexToRGB('#2CA8FF', 0.6));
 
     var a = {
-      type: "bar",
+      // gráfico de pizza
+      type: "pie",
       data: {
-        labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+        labels: ["Disponível", "Em Uso"],
         datasets: [{
           label: "Active Countries",
           backgroundColor: gradientFill,
@@ -391,7 +406,7 @@ demo = {
           pointRadius: 4,
           fill: true,
           borderWidth: 1,
-          data: [80, 99, 86, 96, 123, 85, 100, 75, 88, 90, 123, 155]
+          data: [5, 95]
         }]
       },
       options: {
@@ -411,6 +426,7 @@ demo = {
         responsive: 1,
         scales: {
           yAxes: [{
+            display: 0, // Essa linha tem como função tirar a linha de fundo do gráfico de pizza
             gridLines: 0,
             gridLines: {
               zeroLineColor: "transparent",
