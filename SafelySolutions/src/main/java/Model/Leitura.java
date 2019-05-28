@@ -14,6 +14,10 @@ public class Leitura {
     public Leitura() {
     }
 
+<<<<<<< HEAD
+    
+    public Leitura(int idMaquina, int idServico, int utilizado, int disponivel, int processos, int threads, int interrupcoes, int velocidadeDeLeitura) {
+=======
     //Construtor para inicializar os dados do oshi
     public Leitura(long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
         this.utilizado = utilizado;
@@ -27,6 +31,7 @@ public class Leitura {
     //construtor completo
 
     public Leitura(int idMaquina, int idServico, long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
+>>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
         this.idMaquina = idMaquina;
         this.idServico = idServico;
         this.utilizado = utilizado;

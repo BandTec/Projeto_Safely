@@ -29,11 +29,10 @@
             <version>5.1.6</version>
         </dependency>
 
-        <dependency>
+     <dependency>
             <groupId>com.microsoft.sqlserver</groupId>
             <artifactId>mssql-jdbc</artifactId>
-            <version>7.2.2.jre11</version>
+            <version>7.0.0.jre8</version>
         </dependency>
-
     </dependencies>
 </project>

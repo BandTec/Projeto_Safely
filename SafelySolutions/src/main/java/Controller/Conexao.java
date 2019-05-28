@@ -4,22 +4,22 @@ import java.sql.*;
 
 public class Conexao {
 
-
     // Conexão com Azure
-    private static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static String connectionStr = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely";
-    private static String usuario = "s_adm@safely";
-    private static String senha = "@Bestlab";
+    private String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    private String connectionStr = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely";
+    private String usuario = "s_adm@safely";
+    private String senha = "@Bestlab";
 
-    public static Connection open() throws SQLException {
-        Connection conn = null;
+    Connection conn = null;
+
+    public Connection open() {
         try {
             conn = DriverManager.getConnection(connectionStr, usuario, senha);
             String open = conn.getSchema();
             return conn;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+        } catch (SQLException e) {
+            System.out.println("erro ao conectar " + e);
         }
         return null;
     }
@@ -28,7 +28,7 @@ public class Conexao {
         conn.close();
     }
 
-    public static ResultSet executeQuery(String sql) throws SQLException {
+    public ResultSet executeQuery(String sql) throws SQLException {
 
         try {
 
@@ -57,12 +57,10 @@ public class Conexao {
             throw e;
         }
     }
-
-
-    public static boolean executeCommand(String sql) throws SQLException {
+// esse aqui é meu codigo da validação ( no caso aqui serve para fazer o insert no banco, validando é claro )
+    public boolean executeCommand(String sql) throws SQLException {
         Connection conn = open();
         PreparedStatement pstm = conn.prepareStatement(sql);
         return pstm.executeUpdate() > 0;
     }
 }
-
