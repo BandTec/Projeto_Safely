@@ -1,0 +1,1 @@
+// onde fica as informações de banco de dados, caso for necessários nessa aplicação.
