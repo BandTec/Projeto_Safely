@@ -31,6 +31,22 @@ function atualizarGraficoMemoria() {
   
 }
 
+function atualizarGraficoSwap() {
+  ctxSwap = lineChartExampleWithNumbersAndGrid.getContext("2d");
+
+  gradientStroke = ctxSwap.createLinearGradient(500, 0, 100, 0);
+  gradientStroke.addColorStop(0, '#18ce0f');
+  gradientStroke.addColorStop(1, chartColor);
+
+  gradientFill = ctxSwap.createLinearGradient(0, 170, 0, 50);
+  gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+  gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.4));
+
+  obterDadosGraficoSwap();
+  setTimeout(atualizarGraficoSwap, 10000);
+
+}
+
 // altere aqui as configurações do gráfico
     // (tamanhos, cores, textos, etc)
 function configurarGraficoCpu() {
@@ -97,7 +113,6 @@ function configurarGraficoCpu() {
       return configuracoes;
   }
 
-
 function configurarGraficoMemoria() {
   var configuracoes = {
     maintainAspectRatio: false,
@@ -158,6 +173,56 @@ function configurarGraficoMemoria() {
   return configuracoes;
 }
 
+function configurarGraficoSwap() {
+  var configuracoes = {
+    maintainAspectRatio: false,
+    legend: {
+      display: false
+    },
+    tooltips: {
+      bodySpacing: 4,
+      mode: "nearest",
+      intersect: 0,
+      position: "nearest",
+      xPadding: 10,
+      yPadding: 10,
+      caretPadding: 10
+    },
+    responsive: true,
+    scales: {
+      yAxes: [{
+        display: 0, // Essa linha tem a função de retirar as linhas do gráfico de pizza
+        gridLines: 0,
+        gridLines: {
+          zeroLineColor: "transparent",
+          drawBorder: false
+        }
+      }],
+      xAxes: [{
+        display: 0,
+        gridLines: 0,
+        ticks: {
+          display: false
+        },
+        gridLines: {
+          zeroLineColor: "transparent",
+          drawTicks: false,
+          display: false,
+          drawBorder: false
+        }
+      }]
+    },
+    layout: {
+      padding: {
+        left: 0,
+        right: 0,
+        top: 15,
+        bottom: 15
+      }
+    }
+  };
+  return configuracoes;
+}
 // altere aqui como os dados serão exibidos
 // e como são recuperados do BackEnd
 function obterDadosGraficoCpu() {
@@ -257,6 +322,53 @@ function obterDadosGraficoMemoria() {
   });
 }
 
+function obterDadosGraficoSwap() {
+  // neste JSON tem que ser 'labels', 'datasets' etc, 
+  // porque é o padrão do Chart.js
+  var dados = {
+    labels: ["Utilizado","Disponível"],
+    datasets: [{
+      label: "Email Stats",
+      borderColor: "#18ce0f",
+      pointBorderColor: "#FFF",
+      pointBackgroundColor: "#18ce0f",
+      pointBorderWidth: 2,
+      pointHoverRadius: 4,
+      pointHoverBorderWidth: 1,
+      pointRadius: 4,
+      fill: true,
+      backgroundColor: gradientFill,
+      borderWidth: 2,
+      data: [100, 100]
+    }]
+  };
+  fetch('/leituras/tempo-real-memoria', { cache: 'no-store' }).then(function (response) {
+      if (response.ok) {
+          response.json().then(function (resposta) {
+              console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+              
+              
+              
+                  // aqui, após 'registro.' use os nomes 
+                  // dos atributos que vem no JSON 
+                  // que gerou na consulta ao banco de dados
+                  //dados.datasets[0].data.push(resposta.utilizado);
+                  //dados.datasets[0].data.push(resposta.disponivel);
+
+                  //var porcentagem = (Number(resposta.utilizado) / (Number(resposta.disponivel) + Number(resposta.utilizado)))*100;
+                  //porcentagem_memoria.innerHTML = `${porcentagem}%`;
+              
+              console.log(JSON.stringify(dados));
+              plotarGraficoSwap(dados);
+          });
+      } else {
+          console.error('Nenhum dado encontrado ou erro na API');
+      }
+  }).catch(function (error) {
+      console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+  });
+}
+
 
 // só altere aqui se souber o que está fazendo!
 function plotarGraficoCpu(dados) {
@@ -283,6 +395,18 @@ function plotarGraficoMemoria(dados) {
       data: dados,
       options: configurarGraficoMemoria()
   });*/
+}
+
+function plotarGraficoSwap(dados) {
+  console.log('iniciando plotagem do gráfico...');
+  
+  window.grafico_swap = new Chart(ctxSwap, {
+    // gráfico de pizza alterado
+    type: 'pie',
+    responsive: true,
+    data: dados,
+    options: configurarGraficoSwap()
+  });
 }
 
 demo = {
@@ -454,56 +578,57 @@ demo = {
       }
     };
 
-    gradientChartOptionsConfigurationWithNumbersAndGrid = {
-      maintainAspectRatio: false,
-      legend: {
-        display: false
-      },
-      tooltips: {
-        bodySpacing: 4,
-        mode: "nearest",
-        intersect: 0,
-        position: "nearest",
-        xPadding: 10,
-        yPadding: 10,
-        caretPadding: 10
-      },
-      responsive: true,
-      scales: {
-        yAxes: [{
-          display: 0, // Essa linha tem a função de retirar as linhas do gráfico de pizza
-          gridLines: 0,
-          gridLines: {
-            zeroLineColor: "transparent",
-            drawBorder: false
-          }
-        }],
-        xAxes: [{
-          display: 0,
-          gridLines: 0,
-          ticks: {
-            display: false
-          },
-          gridLines: {
-            zeroLineColor: "transparent",
-            drawTicks: false,
-            display: false,
-            drawBorder: false
-          }
-        }]
-      },
-      layout: {
-        padding: {
-          left: 0,
-          right: 0,
-          top: 15,
-          bottom: 15
-        }
-      }
-    };
+    // gradientChartOptionsConfigurationWithNumbersAndGrid = {
+    //   maintainAspectRatio: false,
+    //   legend: {
+    //     display: false
+    //   },
+    //   tooltips: {
+    //     bodySpacing: 4,
+    //     mode: "nearest",
+    //     intersect: 0,
+    //     position: "nearest",
+    //     xPadding: 10,
+    //     yPadding: 10,
+    //     caretPadding: 10
+    //   },
+    //   responsive: true,
+    //   scales: {
+    //     yAxes: [{
+    //       display: 0, // Essa linha tem a função de retirar as linhas do gráfico de pizza
+    //       gridLines: 0,
+    //       gridLines: {
+    //         zeroLineColor: "transparent",
+    //         drawBorder: false
+    //       }
+    //     }],
+    //     xAxes: [{
+    //       display: 0,
+    //       gridLines: 0,
+    //       ticks: {
+    //         display: false
+    //       },
+    //       gridLines: {
+    //         zeroLineColor: "transparent",
+    //         drawTicks: false,
+    //         display: false,
+    //         drawBorder: false
+    //       }
+    //     }]
+    //   },
+    //   layout: {
+    //     padding: {
+    //       left: 0,
+    //       right: 0,
+    //       top: 15,
+    //       bottom: 15
+    //     }
+    //   }
+    // };
 
     atualizarGraficoCpu();
     atualizarGraficoMemoria();
+    atualizarGraficoSwap();
 
     /*
     var cardStatsMiniLineColor = "#fff",
@@ -543,41 +668,42 @@ demo = {
       options: gradientChartOptionsConfiguration
     });
 */
+    // Swap
+    // ctx = document.getElementById('lineChartExampleWithNumbersAndGrid').getContext("2d");
 
-    ctx = document.getElementById('lineChartExampleWithNumbersAndGrid').getContext("2d");
+    // gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
+    // gradientStroke.addColorStop(0, '#18ce0f');
+    // gradientStroke.addColorStop(1, chartColor);
 
-    gradientStroke = ctx.createLinearGradient(500, 0, 100, 0);
-    gradientStroke.addColorStop(0, '#18ce0f');
-    gradientStroke.addColorStop(1, chartColor);
+    // gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
+    // gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
+    // gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.4));
 
-    gradientFill = ctx.createLinearGradient(0, 170, 0, 50);
-    gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
-    gradientFill.addColorStop(1, hexToRGB('#18ce0f', 0.4));
+    // myChart = new Chart(ctx, {
+    //   // gráfico de linha mudado para gráfico de pizza "pie"
+    //   type: 'pie',
+    //   responsive: true,
+    //   data: {
+    //     labels: ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
+    //     datasets: [{
+    //       label: "Email Stats",
+    //       borderColor: "#18ce0f",
+    //       pointBorderColor: "#FFF",
+    //       pointBackgroundColor: "#18ce0f",
+    //       pointBorderWidth: 2,
+    //       pointHoverRadius: 4,
+    //       pointHoverBorderWidth: 1,
+    //       pointRadius: 4,
+    //       fill: true,
+    //       backgroundColor: gradientFill,
+    //       borderWidth: 2,
+    //       data: [40, 500, 650, 700, 1200, 1250, 1300, 1900]
+    //     }]
+    //   },
+    //   options: gradientChartOptionsConfigurationWithNumbersAndGrid
+    // });
 
-    myChart = new Chart(ctx, {
-      // gráfico de linha mudado para gráfico de pizza "pie"
-      type: 'pie',
-      responsive: true,
-      data: {
-        labels: ["12pm,", "3pm", "6pm", "9pm", "12am", "3am", "6am", "9am"],
-        datasets: [{
-          label: "Email Stats",
-          borderColor: "#18ce0f",
-          pointBorderColor: "#FFF",
-          pointBackgroundColor: "#18ce0f",
-          pointBorderWidth: 2,
-          pointHoverRadius: 4,
-          pointHoverBorderWidth: 1,
-          pointRadius: 4,
-          fill: true,
-          backgroundColor: gradientFill,
-          borderWidth: 2,
-          data: [40, 500, 650, 700, 1200, 1250, 1300, 1900]
-        }]
-      },
-      options: gradientChartOptionsConfigurationWithNumbersAndGrid
-    });
-
+    // disco rigido
     var e = document.getElementById("barChartSimpleGradientsNumbers").getContext("2d");
 
     gradientFill = ctx.createLinearGradient(0, 170, 0, 50);

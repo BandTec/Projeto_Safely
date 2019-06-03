@@ -233,7 +233,7 @@ demo = {
       // alterado o tipo de gráfico para gráfico de pizza "pie"
       type: 'line',
       data: {
-        // labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
+        // Antes estava definido com meses: Jan Feb Mar Apr May... Agora está clasificado como tempo                                                                                                                     labels: ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"],
         labels: ["5", "10", "15", "20", "25", "30", "35", "40", "45", "50", "55", "60"],
         datasets: [{
           label: "Data",
