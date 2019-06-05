@@ -5,9 +5,9 @@ import java.sql.*;
 public class Conexao {
     // Conexão com Azure
     private static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private static String connectionStr = "jdbc:sqlserver://smart420.database.windows.net:1433;database=Smart42";
-    private static String usuario = "administrador";
-    private static String senha = "Smart420";
+    private static String connectionStr = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely";
+    private static String usuario = "s_adm";
+    private static String senha = "@Bestlab";
 
     public static Connection open() throws SQLException {
         Connection conn = null;
