@@ -3,20 +3,29 @@ package Model;
 public class Usuario {
     private int idUsuario;
     private String nome;
-    private String username;
     private String email;
     private String senha;
-
+    private int idEstabelecimento;
+    
     public Usuario() {
     }
 
-    public Usuario(int idUsuario, String nome, String username, String email, String senha) {
+    public Usuario(int idUsuario, String nome, String email, String senha, int idEstabelecimento) {
         this.idUsuario = idUsuario;
         this.nome = nome;
-        this.username = username;
         this.email = email;
         this.senha = senha;
+        this.idEstabelecimento = idEstabelecimento;
     }
+
+    public int getIdEstabelecimento() {
+        return idEstabelecimento;
+    }
+
+    public void setIdEstabelecimento(int idEstabelecimento) {
+        this.idEstabelecimento = idEstabelecimento;
+    }
+
 
     public int getIdUsuario() {
         return idUsuario;
@@ -32,14 +41,6 @@ public class Usuario {
 
     public void setNome(String nome) {
         this.nome = nome;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
     }
 
     public String getEmail() {

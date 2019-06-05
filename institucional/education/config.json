@@ -1,7 +1,7 @@
 {
     "database": {
-        "server": "nomedoservidor.database.windows.net",
-        "user": "s_adm@safely",
+        "server": "safely.database.windows.net",
+        "user": "s_adm",
         "password": "@Bestlab",
         "database": "Safely",
         "options": {
@@ -9,10 +9,10 @@
         }
     },
     "database2": {
-        "server": "nomeDoBanco.database.windows.net",
-        "user": "usuarioDoBanco",
-        "password": "senhaDoBanco",
-        "database": "nomeDoBanco",
+        "server": "safely.database.windows.net",
+        "user": "s_adm",
+        "password": "@Bestlab",
+        "database": "Safely",
         "options": {
             "encrypt": true
         }

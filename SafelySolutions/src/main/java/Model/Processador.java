@@ -4,30 +4,16 @@ public class Processador {
     private int idProcessador;
     private String nome;
     private String ultimaModificacao;
+    private int idMaquina;
 
     public Processador() {
-    }  
-//isso eu mandei para a classe realizar Leitura mas antes fiz um ToStrig do que eu queria pegar 
-    //no caso apenas o nome 
-    
-    public Processador(String nome) {
-        this.nome = nome;
-    }
-<<<<<<< HEAD
-    
-=======
-
-    //construtor para inicializar os dados com o oshi
-    public Processador(String nome) {
-        this.nome = nome;
     }
 
-    //construtor completo
->>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
-    public Processador(int idProcessador, String nome, String ultimaModificacao) {
+    public Processador(int idProcessador, String nome, String ultimaModificacao, int idMaquina) {
         this.idProcessador = idProcessador;
         this.nome = nome;
         this.ultimaModificacao = ultimaModificacao;
+        this.idMaquina = idMaquina;
     }
 
     public int getIdProcessador() {
@@ -53,9 +39,12 @@ public class Processador {
     public void setUltimaModificacao(String ultimaModificacao) {
         this.ultimaModificacao = ultimaModificacao;
     }
-//fiz o toString e ai manda pro realizar leitura mas fazemos o toString com aquilo que queremos visualizar 
-    @Override
-    public String toString() {
-        return "Processador{ " + "nome=" + getNome() + '}';
+
+    public int getIdMaquina() {
+        return idMaquina;
+    }
+
+    public void setIdMaquina(int idMaquina) {
+        this.idMaquina = idMaquina;
     }
 }

@@ -1,45 +1,38 @@
 package Model;
 
 public class Leitura {
-    private int idMaquina;
-    private int idServico;
-    private long utilizado;
-    private long disponivel;
-    private long processos;
-    private long threads;
-    private long interrupcoes;
-    private long velocidadeDeLeitura;
+   private int idLeitura;
+   private int idMaquina;
+   private int qtdProcessos;
+   private int qtdInterrupcoes;
+   private int velocidadeDeLeituraCpu;
+   private double usoCpu;
+   private int usoMemoria;
+   private int usoDisco;
+   private String dataHora;
 
 
     public Leitura() {
     }
 
-<<<<<<< HEAD
-    
-    public Leitura(int idMaquina, int idServico, int utilizado, int disponivel, int processos, int threads, int interrupcoes, int velocidadeDeLeitura) {
-=======
-    //Construtor para inicializar os dados do oshi
-    public Leitura(long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
-        this.utilizado = utilizado;
-        this.disponivel = disponivel;
-        this.processos = processos;
-        this.threads = threads;
-        this.interrupcoes = interrupcoes;
-        this.velocidadeDeLeitura = velocidadeDeLeitura;
+    public Leitura(int idLeitura, int idMaquina, int qtdProcessos, int qtdInterrupcoes, int velocidadeDeLeituraCpu, double usoCpu, int usoMemoria, int usoDisco, String dataHora) {
+        this.idLeitura = idLeitura;
+        this.idMaquina = idMaquina;
+        this.qtdProcessos = qtdProcessos;
+        this.qtdInterrupcoes = qtdInterrupcoes;
+        this.velocidadeDeLeituraCpu = velocidadeDeLeituraCpu;
+        this.usoCpu = usoCpu;
+        this.usoMemoria = usoMemoria;
+        this.usoDisco = usoDisco;
+        this.dataHora = dataHora;
     }
 
-    //construtor completo
+    public int getIdLeitura() {
+        return idLeitura;
+    }
 
-    public Leitura(int idMaquina, int idServico, long utilizado, long disponivel, long processos, long threads, long interrupcoes, long velocidadeDeLeitura) {
->>>>>>> febae58fb5d7863092548c756c2b76feafe637e9
-        this.idMaquina = idMaquina;
-        this.idServico = idServico;
-        this.utilizado = utilizado;
-        this.disponivel = disponivel;
-        this.processos = processos;
-        this.threads = threads;
-        this.interrupcoes = interrupcoes;
-        this.velocidadeDeLeitura = velocidadeDeLeitura;
+    public void setIdLeitura(int idLeitura) {
+        this.idLeitura = idLeitura;
     }
 
     public int getIdMaquina() {
@@ -50,59 +43,59 @@ public class Leitura {
         this.idMaquina = idMaquina;
     }
 
-    public int getIdServico() {
-        return idServico;
+    public int getQtdProcessos() {
+        return qtdProcessos;
     }
 
-    public void setIdServico(int idServico) {
-        this.idServico = idServico;
+    public void setQtdProcessos(int qtdProcessos) {
+        this.qtdProcessos = qtdProcessos;
     }
 
-    public long getUtilizado() {
-        return utilizado;
+    public int getQtdInterrupcoes() {
+        return qtdInterrupcoes;
     }
 
-    public void setUtilizado(long utilizado) {
-        this.utilizado = utilizado;
+    public void setQtdInterrupcoes(int qtdInterrupcoes) {
+        this.qtdInterrupcoes = qtdInterrupcoes;
     }
 
-    public long getDisponivel() {
-        return disponivel;
+    public int getVelocidadeDeLeituraCpu() {
+        return velocidadeDeLeituraCpu;
     }
 
-    public void setDisponivel(long disponivel) {
-        this.disponivel = disponivel;
+    public void setVelocidadeDeLeituraCpu(int velocidadeDeLeituraCpu) {
+        this.velocidadeDeLeituraCpu = velocidadeDeLeituraCpu;
     }
 
-    public long getProcessos() {
-        return processos;
+    public double getUsoCpu() {
+        return usoCpu;
     }
 
-    public void setProcessos(long processos) {
-        this.processos = processos;
+    public void setUsoCpu(double usoCpu) {
+        this.usoCpu = usoCpu;
     }
 
-    public long getThreads() {
-        return threads;
+    public int getUsoMemoria() {
+        return usoMemoria;
     }
 
-    public void setThreads(long threads) {
-        this.threads = threads;
+    public void setUsoMemoria(int usoMemoria) {
+        this.usoMemoria = usoMemoria;
     }
 
-    public long getInterrupcoes() {
-        return interrupcoes;
+    public int getUsoDisco() {
+        return usoDisco;
     }
 
-    public void setInterrupcoes(long interrupcoes) {
-        this.interrupcoes = interrupcoes;
+    public void setUsoDisco(int usoDisco) {
+        this.usoDisco = usoDisco;
     }
 
-    public long getVelocidadeDeLeitura() {
-        return velocidadeDeLeitura;
+    public String getDataHora() {
+        return dataHora;
     }
 
-    public void setVelocidadeDeLeitura(long velocidadeDeLeitura) {
-        this.velocidadeDeLeitura = velocidadeDeLeitura;
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
     }
 }

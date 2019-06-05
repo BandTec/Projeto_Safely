@@ -4,21 +4,30 @@ public class Disco {
     private int idDisco;
     private  String nome;
     private String ultimaModificacao;
-    private int tamanho;
+    private long tamanho;
+    private int idMaquina;
 
     public Disco() {
     }
 
-    // Construtor para inicializar os dados do oshi
-    public Disco(String nome, long tamanho){
-        this.nome = nome;
-        this.tamanho = tamanho;
-    }
-    public Disco(int idDisco, String nome, String ultimaModificacao, int tamanho) {
+    public Disco(int idDisco, String nome, String ultimaModificacao, long tamanho, int idMaquina) {
         this.idDisco = idDisco;
         this.nome = nome;
         this.ultimaModificacao = ultimaModificacao;
         this.tamanho = tamanho;
+        this.idMaquina = idMaquina;
+    }
+
+    public void setTamanho(long tamanho) {
+        this.tamanho = tamanho;
+    }
+
+    public int getIdMaquina() {
+        return idMaquina;
+    }
+
+    public void setIdMaquina(int idMaquina) {
+        this.idMaquina = idMaquina;
     }
 
     public int getIdDisco() {
@@ -45,7 +54,7 @@ public class Disco {
         this.ultimaModificacao = ultimaModificacao;
     }
 
-    public int getTamanho() {
+    public long getTamanho() {
         return tamanho;
     }
 

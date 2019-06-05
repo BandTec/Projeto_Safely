@@ -7,8 +7,8 @@ const createError = require('http-errors');
 const indexRouter = require('./routes/index');//pegando a pagina index como principal e fazendo rotas
 const loginRouter = require('./routes/login');
 const logoutRouter = require('./routes/logout');
-
-
+const connectRouter = require('./routes/connect.js');
+const graficosRouter = require('./routes/dashboard');
 //fim de rotas de pagina
 
 const app = express(); //inicio do express
@@ -25,7 +25,8 @@ app.use((req, res, next) =>{
 app.use('/', indexRouter);
 app.use('/login', loginRouter);
 app.use('/logout', logoutRouter);//ainda vai precisar das outras rotas
-
+app.use('/cadastro',connectRouter);
+app.use('/graficos',graficosRouter);
 
 app.use(function(req, res, next) {
     next(createError(404));//pagina não encontrada

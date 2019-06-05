@@ -10,18 +10,15 @@ public class Maquina {
     private String hotsName;
     private String IPv4;
     private String IPv6;
-    private String descricao;
     private String ultimaAtualizacao;
-    private int idProcessador;
-    private int idDisco;
-    private int idMemoria;
+    private int idTipo;
+    private int idEstabelecimento;
 
     public Maquina() {
     }
 
 
-    //construtor completo - iniciar coma leitura do oshi, apenas o idMaquina não será utilizado durante a inserção no banco
-    public Maquina(int idMaquina, String SO, String serialNumber, String versao, String modelo, String dominio, String hotsName, String IPv4, String IPv6, String descricao, String ultimaAtualizacao, String idProcessador, String idDisco, String idMemoria) {
+    public Maquina(int idMaquina, String SO, String serialNumber, String versao, String modelo, String dominio, String hotsName, String IPv4, String IPv6, String ultimaAtualizacao, int idProcessador, int idDisco, int idMemoria, int idTipo, int idEstabelecimento) {
         this.idMaquina = idMaquina;
         this.SO = SO;
         this.serialNumber = serialNumber;
@@ -31,11 +28,9 @@ public class Maquina {
         this.hotsName = hotsName;
         this.IPv4 = IPv4;
         this.IPv6 = IPv6;
-        this.descricao = descricao;
         this.ultimaAtualizacao = ultimaAtualizacao;
-        this.idProcessador = idProcessador();
-        this.idDisco = idDisco;
-        this.idMemoria = idMemoria;
+        this.idTipo = idTipo;
+        this.idEstabelecimento = idEstabelecimento;
     }
 
     public int getIdMaquina() {
@@ -110,14 +105,6 @@ public class Maquina {
         this.IPv6 = IPv6;
     }
 
-    public String getDescricao() {
-        return descricao;
-    }
-
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
-    }
-
     public String getUltimaAtualizacao() {
         return ultimaAtualizacao;
     }
@@ -126,27 +113,21 @@ public class Maquina {
         this.ultimaAtualizacao = ultimaAtualizacao;
     }
 
-    public String getIdProcessador() {
-        return idProcessador;
+    public int getIdTipo() {
+        return idTipo;
     }
 
-    public void setIdProcessador(String idProcessador) {
-        this.idProcessador = idProcessador;
+    public void setIdTipo(int idTipo) {
+        this.idTipo = idTipo;
     }
 
-    public String getIdDisco() {
-        return idDisco;
+    public int getIdEstabelecimento() {
+        return idEstabelecimento;
     }
 
-    public void setIdDisco(String idDisco) {
-        this.idDisco = idDisco;
+    public void setIdEstabelecimento(int idEstabelecimento) {
+        this.idEstabelecimento = idEstabelecimento;
     }
 
-    public String getIdMemoria() {
-        return idMemoria;
-    }
-
-    public void setIdMemoria(String idMemoria) {
-        this.idMemoria = idMemoria;
-    }
+  
 }

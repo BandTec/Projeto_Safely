@@ -3,23 +3,21 @@ package Controller;
 import java.sql.*;
 
 public class Conexao {
-
     // Conexão com Azure
-    private String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
-    private String connectionStr = "jdbc:sqlserver://safely.database.windows.net:1433;database=Safely";
-    private String usuario = "s_adm@safely";
-    private String senha = "@Bestlab";
+    private static String driver = "com.microsoft.sqlserver.jdbc.SQLServerDriver";
+    private static String connectionStr = "jdbc:sqlserver://smart420.database.windows.net:1433;database=Smart42";
+    private static String usuario = "administrador";
+    private static String senha = "Smart420";
 
-    Connection conn = null;
-
-    public Connection open() {
+    public static Connection open() throws SQLException {
+        Connection conn = null;
         try {
             conn = DriverManager.getConnection(connectionStr, usuario, senha);
             String open = conn.getSchema();
             return conn;
 
-        } catch (SQLException e) {
-            System.out.println("erro ao conectar " + e);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
         return null;
     }
@@ -28,7 +26,7 @@ public class Conexao {
         conn.close();
     }
 
-    public ResultSet executeQuery(String sql) throws SQLException {
+    public static ResultSet executeQuery(String sql) throws SQLException {
 
         try {
 
@@ -52,15 +50,18 @@ public class Conexao {
             PreparedStatement pstm = conn.prepareStatement(sql);
             ResultSet rset = pstm.executeQuery();
             return rset;
+
         } catch (Exception e) {
             e.printStackTrace();
             throw e;
         }
     }
-// esse aqui é meu codigo da validação ( no caso aqui serve para fazer o insert no banco, validando é claro )
-    public boolean executeCommand(String sql) throws SQLException {
+
+
+    public static boolean executeCommand(String sql) throws SQLException {
         Connection conn = open();
         PreparedStatement pstm = conn.prepareStatement(sql);
         return pstm.executeUpdate() > 0;
     }
 }
+

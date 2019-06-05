@@ -3,19 +3,28 @@ package Model;
 public class Caixa {
     private int idCaixa;
     private float entrada;
-    private String hora;
-    private String data;
+    private String dataHora;
+    private int idEstabelecimento;
 
     public Caixa() {
     }
 
-    // Construtor completo
-    public Caixa(int idCaixa, float entrada, String hora, String data) {
+    public Caixa(int idCaixa, float entrada, String dataHora, int idEstabelecimento) {
         this.idCaixa = idCaixa;
         this.entrada = entrada;
-        this.hora = hora;
-        this.data = data;
+        this.dataHora = dataHora;
+        this.idEstabelecimento = idEstabelecimento;
     }
+
+    public int getIdEstabelecimento() {
+        return idEstabelecimento;
+    }
+
+    public void setIdEstabelecimento(int idEstabelecimento) {
+        this.idEstabelecimento = idEstabelecimento;
+    }
+
+  
 
     public int getIdCaixa() {
         return idCaixa;
@@ -25,7 +34,7 @@ public class Caixa {
         this.idCaixa = idCaixa;
     }
 
-    public double getEntrada() {
+    public float getEntrada() {
         return entrada;
     }
 
@@ -33,19 +42,11 @@ public class Caixa {
         this.entrada = entrada;
     }
 
-    public String getHora() {
-        return hora;
+    public String getDataHora() {
+        return dataHora;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
-    }
-
-    public String getData() {
-        return data;
-    }
-
-    public void setData(String data) {
-        this.data = data;
+    public void setDataHora(String dataHora) {
+        this.dataHora = dataHora;
     }
 }

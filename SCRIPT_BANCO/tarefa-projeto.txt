@@ -1,0 +1,30 @@
+Logs - geração e limpeza (biel tem pronto) - falta configurar / Donno
+
+Slack configuração (A cada alerta envia uma mensagem para o slack, informando o ocorrido,
+junto é enviado o log de uso)
+
+Gráficos (semi-pronto) -- essencial
+
+Cadastro da entrada diária do estabelecimento
+
+Suporte -- Front com redirecionamento para o Slack
+
+Analise -- Inovação
+	-Configuração do Zoho e portação dos gráficos para a página web
+
+Java 
+	-Tratamento dos dados (converter para megas) ou porcentagem
+	-Tornar arquivo executavel 
+	-Ler o tempo de atividade da máquina
+	-realizar leitura a cada x tempo
+
+Máquinas
+	-Apresentar na tela as informações da máquina
+	-Opção para escolher se é servidor, client ou comum 
+
+
+-----------Documentação------------------
+
+Arquitetura da solução
+PTT - Apresentação
+Resumo da inovação

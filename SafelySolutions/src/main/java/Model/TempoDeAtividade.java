@@ -3,17 +3,17 @@ package Model;
 public class TempoDeAtividade {
     private int idTempoDeAtividade;
     private int idMaquina;
-    private String data;
-    private String hora;
+    private String dataInicio;
+    private String dataFim;
 
     public TempoDeAtividade() {
     }
 
-    public TempoDeAtividade(int idTempoDeAtividade, int idMaquina, String data, String hora) {
+    public TempoDeAtividade(int idTempoDeAtividade, int idMaquina, String dataInicio, String dataFim) {
         this.idTempoDeAtividade = idTempoDeAtividade;
         this.idMaquina = idMaquina;
-        this.data = data;
-        this.hora = hora;
+        this.dataInicio = dataInicio;
+        this.dataFim = dataFim;
     }
 
     public int getIdTempoDeAtividade() {
@@ -32,19 +32,19 @@ public class TempoDeAtividade {
         this.idMaquina = idMaquina;
     }
 
-    public String getData() {
-        return data;
+    public String getDataInicio() {
+        return dataInicio;
     }
 
-    public void setData(String data) {
-        this.data = data;
+    public void setDataInicio(String dataInicio) {
+        this.dataInicio = dataInicio;
     }
 
-    public String getHora() {
-        return hora;
+    public String getDataFim() {
+        return dataFim;
     }
 
-    public void setHora(String hora) {
-        this.hora = hora;
+    public void setDataFim(String dataFim) {
+        this.dataFim = dataFim;
     }
 }
