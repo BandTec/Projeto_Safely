@@ -114,19 +114,19 @@ demo = {
     let ram;
     function drawChartR() {
       
-      $.ajax({
-      url: "/graficos/ram",
-      type: 'GET'
-      }).done(function(resposta){
-          ram = resposta;
-          console.log(resposta);
-          console.log(ram[0][0]);
+     // $.ajax({
+//url: "/graficos/ram",
+     // type: 'GET'
+    //  }).done(function(resposta){
+        //  ram = resposta;
+         // console.log(resposta);
+        //  console.log(ram[0][0]);
           var data = google.visualization.arrayToDataTable([
               ['ocupado', 'tamanho'],
-              ['Livre',     1000000000],
-              ['Utilizado',  ram[0][0].uso_ram],
+              ['Livre',     100],
+              ['Utilizado', 57 ],
             ]);
-    
+    //ram[0][0].uso_ram
     
           var options = {
             title: 'Leitura RAM'
@@ -135,9 +135,9 @@ demo = {
           var chart = new google.visualization.PieChart(document.getElementById('RAM'));
     
           chart.draw(data ,options);
-      }).fail(function(jqXHR, textStatus){ 
-        alert(jqXHR.responseJSON.mensagem);
-      }); 
+//}).fail(function(jqXHR, textStatus){ 
+      //  alert(jqXHR.responseJSON.mensagem);
+     // }); 
     }
 
     google.charts.load('current', {'packages':['corechart']});
@@ -145,20 +145,20 @@ demo = {
 
     function drawCharD() {
 
-      $.ajax({
-        url: "/graficos/disco",
-        type: 'GET'
-        }).done(function(resposta){
-        let disco = resposta;
-        console.log(resposta);
-        console.log(disco[0][0]);
+     // $.ajax({
+       // url: "/graficos/disco",
+        //type: 'GET'
+        //}).done(function(resposta){
+        //let disco = resposta;
+        //console.log(resposta);
+        //console.log(disco[0][0]);
         var data = google.visualization.arrayToDataTable([
           ['ocupado', 'tamanho'],
-          ['Livre',     10000000],
-          ['Utilizado',   disco[0][0].uso_disco],
+          ['Livre',     100],
+          ['Utilizado',  35],
         ]);
 
-
+        // disco[0][0].uso_disco
         var options = {
           title: 'Espaço em disco'
         };
@@ -166,9 +166,9 @@ demo = {
         var chart = new google.visualization.PieChart(document.getElementById('disco'));
 
         chart.draw(data ,options);
-      }).fail(function(jqXHR, textStatus){ 
-        alert(jqXHR.responseJSON.mensagem);
-      }); 
+     // }).fail(function(jqXHR, textStatus){ 
+       // alert(jqXHR.responseJSON.mensagem);
+      //}); 
   }
 
 
@@ -286,19 +286,19 @@ demo = {
     gradientFill.addColorStop(0, "rgba(128, 182, 244, 0)");
     gradientFill.addColorStop(1, "rgba(255, 255, 255, 0.24)");
 
-    
-    $.ajax({
-      url: "/graficos/cpu",
-      type: 'GET'
-      }).done(function(resposta){
-        let cpu = resposta;
-        console.log(resposta);
-        console.log(cpu[0][0]);
+  
+  //  $.ajax({
+    //  url: "/graficos/cpu",
+      //type: 'GET'
+      //}).done(function(resposta){
+        //let cpu = resposta;
+        //console.log(resposta);
+        //console.log(cpu[0][0]);
 
     var myChart = new Chart(ctx, {
       type: 'line',
       data: {
-        labels: ["5s", "10s", "15s", "20s", "25s", "30s", "35s", "40s", "50s", "55s", "60s"],
+        labels: ["05/06 20h45", "05/06 20h50", "05/06 20h55", "05/06 21h00", "05/06 21h00", "05/06 21h05", "05/06 21h10", "05/06 21h15", "05/06 21h20", "05/06 21h25", "05/06 21h30"],
         datasets: [{
           label: "Data",
           borderColor: chartColor,
@@ -313,7 +313,7 @@ demo = {
           fill: true,
           backgroundColor: gradientFill,
           borderWidth: 2,
-          data: [111,22,22,22,21,24]
+          data: [10,20,40,16,32,95, 50, 45, 49, 53, 100, 43, 84]
         }]
       },
       options: {
@@ -378,9 +378,9 @@ demo = {
  
     var e = document.getElementById("barChartSimpleGradientsNumbers").getContext("2d");
 
-  }).fail(function(jqXHR, textStatus){ 
-    alert(jqXHR.responseJSON.mensagem);
-   }); 
+  //}).fail(function(jqXHR, textStatus){ 
+    //alert(jqXHR.responseJSON.mensagem);
+  // }); 
    
   },
 };
