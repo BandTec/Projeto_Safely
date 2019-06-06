@@ -114,19 +114,19 @@ demo = {
     let ram;
     function drawChartR() {
       
-     // $.ajax({
-//url: "/graficos/ram",
-     // type: 'GET'
-    //  }).done(function(resposta){
-        //  ram = resposta;
-         // console.log(resposta);
-        //  console.log(ram[0][0]);
+      $.ajax({
+      url: "/graficos/ram", 
+      type: 'GET'
+     }).done(function(resposta){
+         ram = resposta;
+         console.log(resposta);
+         console.log(ram[0][0]);
           var data = google.visualization.arrayToDataTable([
               ['ocupado', 'tamanho'],
               ['Livre',     100],
-              ['Utilizado', 57 ],
+              ['Utilizado',  ram[0][0].uso_ram ],
             ]);
-    //ram[0][0].uso_ram
+   
     
           var options = {
             title: 'Leitura RAM'
@@ -135,9 +135,9 @@ demo = {
           var chart = new google.visualization.PieChart(document.getElementById('RAM'));
     
           chart.draw(data ,options);
-//}).fail(function(jqXHR, textStatus){ 
-      //  alert(jqXHR.responseJSON.mensagem);
-     // }); 
+}).fail(function(jqXHR, textStatus){ 
+        alert(jqXHR.responseJSON.mensagem);
+      }); 
     }
 
     google.charts.load('current', {'packages':['corechart']});
@@ -145,20 +145,20 @@ demo = {
 
     function drawCharD() {
 
-     // $.ajax({
-       // url: "/graficos/disco",
-        //type: 'GET'
-        //}).done(function(resposta){
-        //let disco = resposta;
-        //console.log(resposta);
-        //console.log(disco[0][0]);
+      $.ajax({
+        url: "/graficos/disco",
+        type: 'GET'
+        }).done(function(resposta){
+        let disco = resposta;
+        console.log(resposta);
+        console.log(disco[0][0]);
         var data = google.visualization.arrayToDataTable([
           ['ocupado', 'tamanho'],
           ['Livre',     100],
-          ['Utilizado',  35],
+          ['Utilizado',  disco[0][0].uso_disco],
         ]);
 
-        // disco[0][0].uso_disco
+         
         var options = {
           title: 'Espaço em disco'
         };
@@ -166,9 +166,9 @@ demo = {
         var chart = new google.visualization.PieChart(document.getElementById('disco'));
 
         chart.draw(data ,options);
-     // }).fail(function(jqXHR, textStatus){ 
-       // alert(jqXHR.responseJSON.mensagem);
-      //}); 
+      }).fail(function(jqXHR, textStatus){ 
+        alert(jqXHR.responseJSON.mensagem);
+      }); 
   }
 
 

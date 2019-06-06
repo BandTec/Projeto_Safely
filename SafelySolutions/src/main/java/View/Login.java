@@ -9,6 +9,7 @@ import Controller.CadastroMaquina;
 import Controller.EnvioBanco;
 import Controller.GeraArquivoLog;
 import Controller.RealizarLeitura;
+import static Controller.Timer.execucao;
 import Controller.ValidarLogin;
 import Model.Leitura;
 import integration.Slack;
@@ -185,6 +186,7 @@ public class Login extends javax.swing.JFrame {
         try {
             boolean ok = login.validar(txtEmail.getText(), txtSenha.getText());
             if(ok == true){
+               
                 System.out.println(EnvioBanco.salvarMaquina(CadastroMaquina.cadastra()));
                 System.out.println(RealizarLeitura.pegaLeitura().toString());
                 System.out.println(EnvioBanco.salvarLeitura(RealizarLeitura.pegaLeitura()));
@@ -211,7 +213,7 @@ public class Login extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws Exception  {
     Slack slack = new Slack();
-
+ execucao();
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

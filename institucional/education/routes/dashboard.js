@@ -71,7 +71,7 @@ function carregaRam() {
 }
 
 function carregaRamTamanho() {
-    let querystring = 'SELECT tamanho FROM TB_MEMORIA-RAM;';
+    let querystring = 'SELECT tamanho FROM TB_MEMORIA_RAM;';
     return new Promise((resolve, reject) => {
         Database.query(querystring).then(results => {
             resolve(results);
