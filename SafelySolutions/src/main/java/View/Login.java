@@ -182,11 +182,12 @@ public class Login extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         ValidarLogin login = new ValidarLogin();
- 
+        
         try {
             boolean ok = login.validar(txtEmail.getText(), txtSenha.getText());
             if(ok == true){
-               
+                
+                   
                 System.out.println(EnvioBanco.salvarMaquina(CadastroMaquina.cadastra()));
                 System.out.println(RealizarLeitura.pegaLeitura().toString());
                 System.out.println(EnvioBanco.salvarLeitura(RealizarLeitura.pegaLeitura()));
@@ -195,6 +196,8 @@ public class Login extends javax.swing.JFrame {
                 System.out.println(EnvioBanco.salvarCpu(RealizarLeitura.pegaCpu()));
                 System.out.println(EnvioBanco.salvarDisco(RealizarLeitura.pegaDisco()));
                 System.out.println("Deu certo");
+                
+             
                 
             }else {
                 System.out.println("Não foi");
@@ -213,7 +216,8 @@ public class Login extends javax.swing.JFrame {
      */
     public static void main(String args[]) throws Exception  {
     Slack slack = new Slack();
- execucao();
+    execucao();
+ 
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -245,6 +249,8 @@ public class Login extends javax.swing.JFrame {
                 new Login().setVisible(true);
             }
         });
+        
+    
 
         GeraArquivoLog log = new GeraArquivoLog();
         log.Log();
